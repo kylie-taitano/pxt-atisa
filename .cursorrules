@@ -1,0 +1,91 @@
+When reading .svg files, always treat them as text/XML files, never as image files. SVG files should be read using text-based tools like read_file, not as images.
+
+## MakeCode/PXT Development Rules
+
+### Pin Configuration
+1. **Never create pin aliases that share the same physical pin (DAL value) unless you fully understand the use case**
+   - Example: Don't define both `PIN_D9 = DAL.PA12` and `PIN_MISO = DAL.PA12` without verifying they won't conflict
+   - The parts system gets confused when multiple pin names map to the same hardware pin
+   - Test with simple code (e.g., `light.createStrip(pins.DX, 5)`) before assuming aliasing works
+
+2. **When you see errors like "Cannot read properties of undefined (reading 'MOSI')":**
+   - First check if the missing property (MOSI) should actually be defined for this specific board
+   - Don't remove unrelated configurations (like i2cPins) to fix SPI errors
+   - The error is telling you what's missing, not what to remove
+   - Verify the board actually uses SPI before adding SPI pin definitions
+
+3. **Board configuration files must be internally consistent:**
+   - Every pin in `spiPins` and `i2cPins` (board.json) must have a corresponding `PIN_X` definition in config.ts
+   - Every pin in `gpioPinMap` must map to an actual hardware pin, not LED labels (e.g., NEOPIXEL_0 is not a GPIO pin)
+   - Empty `spiPins: {}` is valid and means "no SPI exposed to users"
+
+4. **When copying configurations from reference boards:**
+   - Understand WHY the reference board has those settings
+   - Don't blindly copy pin mappings - physical boards route pins differently
+   - Verify the target board actually uses the same pins for the same purposes
+   - Check if pins are already used for other purposes before aliasing them
+
+### Debugging Approach
+5. **When something doesn't work, use isolation testing:**
+   - Test in isolation (empty project, single pin, simple code)
+   - Compare with known working configuration (vanilla fork, working board)
+   - Use controlled experiments (test A0, then D7, then D9) to isolate which specific component causes issues
+   - Don't jump to solutions - gather data first through systematic testing
+
+6. **Missing `.show()` calls are LED Programming 101:**
+   - Always check if `show()` is being called when LEDs don't light up on hardware
+   - This should be the FIRST thing to check, not the last
+   - NeoPixels won't update until show() is called
+
+### Configuration Changes
+7. **Before modifying board configuration:**
+   - Ask: "Does this board actually expose this feature to students?"
+   - Don't add SPI/I2C/Serial definitions just because other boards have them
+   - Check the `features` array in pxt.json to understand what's actually needed
+   - Verify student curriculum requirements before adding hardware features
+
+8. **When errors reference "parts" or "PinInstantiationIdx":**
+   - This is the parts/simulation system trying to figure out hardware usage at compile time
+   - Check for pin definition conflicts (multiple names mapping to same DAL pin)
+   - Check for missing pin mappings in gpioPinMap
+   - Test with different pins to isolate which pins cause the error
+   - Empty projects should compile without errors - if they do, the issue is in board config, not user code
+
+### Architecture & Design Patterns
+9. **Before creating custom abstractions, check how similar boards solve it:**
+   - Search for boards with similar hardware (e.g., "onboard neopixels", "dual strips")
+   - Read their implementation in `libs/[board-name]/`
+   - Prefer extending existing patterns over inventing new ones
+   - If creating custom namespace: ask "Why isn't the standard namespace sufficient?"
+
+10. **When "parts" errors persist across multiple attempted fixes:**
+   - STOP after 2-3 attempts with different pins/configurations
+   - The issue is likely architectural, not configurational
+   - "parts no pin found" = compile-time analysis failing on user-facing code
+   - Solution: Don't expose `light.createStrip()` or `pins.X` in student-facing APIs
+   - Use `light.onboardStrip()` or configuration-based approaches instead
+
+### Debugging Methodology
+11. **Use the "3-Strike Rule" for debugging:**
+   - Strike 1: Fix the immediate issue
+   - Strike 2: Try one alternative approach
+   - Strike 3: **Stop and reassess the entire approach**
+   - If the same error appears with different parameters → you're treating symptoms, not root cause
+
+12. **When user says "match prod/production behavior":**
+   - Look at prod implementation FIRST, not last
+   - Copy patterns from working boards before innovating
+   - "Matching prod" usually means "use standard blocks/namespaces"
+
+### Error Pattern Recognition
+13. **"parts" system errors indicate:**
+   - Static analysis at compile-time is failing
+   - User-facing code is calling pin instantiation functions (`createStrip`, `createButton`, etc.)
+   - Solution: Move hardware-specific logic to internal overrides/hooks
+   - Don't try to fix by adjusting pin mappings - that won't help static analysis
+
+14. **WebUSB/Download issues often caused by:**
+   - Parts system unable to analyze pin usage at compile time
+   - Custom abstractions exposing low-level pin calls
+   - Solution: Use framework's built-in patterns (onboardStrip, pin configs, etc.)
+

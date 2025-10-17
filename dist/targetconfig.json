@@ -1,0 +1,56 @@
+{
+  "packages": {
+    "approvedOrgs": ["Microsoft"],
+    "approvedRepos": [
+      "microsoft/pxt-jacdac",
+      "microsoft/pxt-ml4f",
+      "Adafruit/pxt-crickit",
+      "Adafruit/pxt-seesaw",
+      "ElectronicCats/pxt-bme280",
+      "ElectronicCats/pxt-airQuality",
+      "ElectronicCats/pxt-lora"
+    ],
+    "preferredRepos": [
+      "microsoft/pxt-jacdac",
+      "Adafruit/pxt-crickit",
+      "Adafruit/pxt-seesaw",
+      "ElectronicCats/pxt-bme280",
+      "ElectronicCats/pxt-airQuality",
+      "ElectronicCats/pxt-lora"
+    ],
+    "approvedEditorExtensionUrls": [
+      "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension",
+      "https://microsoft.github.io/ml4f/"
+    ],
+    "approvedRepoLib": {
+      "microsoft/pxt-jacdac": {
+        "preferred": true
+      },
+      "microsoft/pxt-ml4f": {},
+      "adafruit/pxt-crickit": {
+        "preferred": true
+      },
+      "adafruit/pxt-seesaw": {
+        "preferred": true
+      },
+      "electroniccats/pxt-bme280": {
+        "preferred": true
+      },
+      "electroniccats/pxt-airquality": {
+        "preferred": true
+      },
+      "electroniccats/pxt-lora": {
+        "preferred": true
+      }
+    }
+  },
+  "galleries": {
+    "Parole": "/projects/parole",
+    "Hanukkah": "/projects/hanukkah",
+    "Christmas": "/projects/christmas",
+    "Kwanzaa": "/projects/kwanzaa",
+    "My Gallery": "/projects/my-gallery",
+    "Adafruit": "/boards/adafruit",
+    "Analog IO": "/projects/analog-io"
+  }
+}
