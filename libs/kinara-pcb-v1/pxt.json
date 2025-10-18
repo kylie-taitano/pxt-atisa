@@ -6,8 +6,7 @@
     "config.ts",
     "device.d.ts",
     "board.json",
-    "board.svg",
-    "kinara.ts"
+    "board.svg"
   ],
     "core": true,
     "dependencies": {

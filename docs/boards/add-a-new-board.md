@@ -39,6 +39,106 @@ The board that gets rendered in the simulator must be stored as a SVG in the pro
 * try to reduce the complexity of the SVG to reduce the file size
 * use a pin id (e.g. ``D11``) or ``connectedname`` (from Fritzing) as names for the pin SVG element
 
+## Step 3.5: Boards with Onboard NeoPixels (Optional)
+
+If your board has **onboard NeoPixel LEDs** (like Circuit Playground Express or custom PCBs with integrated LED strips), follow these additional configuration steps to prevent the simulator from showing an unwanted breadboard.
+
+### The Key Principle
+
+- **Empty `pinBlocks: []`** → Simulator shows only the board (no breadboard)
+- **Populated `pinBlocks`** → Simulator shows breadboard for external connections
+
+### Configuration Requirements
+
+#### 1. `board.json` Visual Configuration
+
+```json
+{
+  "visual": {
+    "useCrocClips": false,
+    "pinBlocks": [],                    // ← MUST be empty array for no breadboard
+    "leds": [
+      // Define each onboard NeoPixel position
+      {"x": 80, "y": 60, "color": "neopixel", "label": "NEOPIXEL_0"},
+      {"x": 120, "y": 60, "color": "neopixel", "label": "NEOPIXEL_1"},
+      // ... one entry per LED with x, y coordinates on your SVG
+    ]
+  },
+  "gpioPinMap": {
+    // Physical pins for student use
+    "D7": "D7",
+    "D9": "D9",
+    // ...
+    
+    // Virtual LED labels (for simulator visualization only)
+    "NEOPIXEL_0": "NEOPIXEL_0",
+    "NEOPIXEL_1": "NEOPIXEL_1",
+    // ... one entry per LED (must match labels in "leds" array)
+  },
+  "onboardComponents": ["pixels"]     // ← Use "pixels" (plural), not "pixel"
+}
+```
+
+**Important:** Do NOT include `marginWhenBreadboarding` if you're using empty `pinBlocks`.
+
+#### 2. `config.ts` Pin Configuration
+
+```typescript
+namespace config {
+    export const PIN_NEOPIXEL = DAL.PA12;  // Physical pin controlling the LEDs
+    export const NUM_NEOPIXELS = 25;        // Total count for simulator
+    
+    // Define other pins...
+    export const PIN_D7 = DAL.PB22;
+    export const PIN_D9 = DAL.PA12;
+}
+```
+
+### Student Experience
+
+Students control the LEDs via the physical pins in their code:
+
+```typescript
+// Single strip on D9
+let strip = light.createStrip(pins.D9, 25)
+strip.setAll(0xff0000)
+
+// OR multiple strips (e.g., 14 LEDs on D9, 11 on D7)
+let strip9 = light.createStrip(pins.D9, 14)
+let strip7 = light.createStrip(pins.D7, 11)
+strip9.setAll(0xff0000)  // Red
+strip7.setAll(0x0000ff)  // Blue
+```
+
+The simulator will light up the corresponding `NEOPIXEL_X` coordinates defined in your `leds` array.
+
+### What NOT to Do
+
+❌ **Don't populate `pinBlocks`** if you want no breadboard:
+```json
+"pinBlocks": [{"x": 350, "y": 50, "labels": ["D7", "D9"]}]  // ← Shows breadboard!
+```
+
+❌ **Don't use singular `"pixel"`**:
+```json
+"onboardComponents": ["pixel"]  // ← Wrong! Use "pixels" (plural)
+```
+
+❌ **Don't create custom TypeScript files** with `light.createStrip()` at the namespace level:
+- This breaks WebUSB on localhost due to the parts system's static analysis
+- Students should call `light.createStrip()` in their own code, not in board config files
+
+### NeoPixel Label Convention
+
+- Labels like `NEOPIXEL_0`, `NEOPIXEL_1` are **virtual labels** for visualization only
+- They map to entries in the `leds` array by matching the `label` field
+- The simulator sorts them numerically automatically
+- These are NOT physical pins—they're just SVG coordinates for rendering
+
+### Reference Example
+
+See `libs/kinara-pcb-v1/` for a complete working example of a board with 25 onboard NeoPixels across two physical strips.
+
 ## Step 4: minifiy board.svg
 
 Run
@@ -47,4 +147,4 @@ Run
 
 to generate a minified version of ``boardhd.svg``.
 
-## Step 4: Send us a Pull Request!!!
+## Step 5: Send us a Pull Request!!!

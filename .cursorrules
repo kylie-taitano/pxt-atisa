@@ -89,3 +89,82 @@ When reading .svg files, always treat them as text/XML files, never as image fil
    - Custom abstractions exposing low-level pin calls
    - Solution: Use framework's built-in patterns (onboardStrip, pin configs, etc.)
 
+## Methodical Debugging Rules
+
+### Before Making Any Changes
+1. **Stop and analyze first** - Never touch code without understanding the problem
+2. **Read the working reference** - Find how similar boards solve the same problem
+3. **Identify root cause** - Distinguish between symptoms and actual problems
+4. **Plan the complete solution** - Map out all changes before starting
+
+### Reference-First Approach
+- **"Show me the reference"** - Always examine working examples first
+- **"How does [working board] actually do this?"** - Understand the pattern
+- **"What's the established approach?"** - Don't invent new patterns
+
+### One Change at a Time
+- **Make ONE change** - Never multiple changes simultaneously
+- **Test it** - Verify the change works
+- **Verify it works** - Confirm the fix before proceeding
+- **Then make the next change** - Only after success
+
+### Architecture Understanding
+Before coding, explain:
+- How the system actually works
+- What each piece does  
+- Why this approach vs alternatives
+- How it fits the established patterns
+
+### Debugging Methodology
+- **Use the "3-Strike Rule"** - Stop after 2-3 attempts and reassess
+- **Isolate the problem** - Test individual components separately
+- **Compare with working systems** - Don't guess, verify against known-good examples
+
+## Boards with Onboard NeoPixels
+
+### Critical Configuration Rules
+1. **Empty `pinBlocks: []`** = No breadboard in simulator
+2. **Populated `pinBlocks`** = Breadboard shown for external connections
+3. **`onboardComponents: ["pixels"]`** (plural!) registers onboard NeoPixels
+4. **Never use `onboardComponents: ["pixel"]`** (singular) - simulator won't recognize it
+
+### Required board.json Structure
+```json
+{
+  "visual": {
+    "useCrocClips": false,
+    "pinBlocks": [],  // MUST be empty for no breadboard
+    "leds": [
+      {"x": 80, "y": 60, "color": "neopixel", "label": "NEOPIXEL_0"},
+      {"x": 120, "y": 60, "color": "neopixel", "label": "NEOPIXEL_1"}
+      // One entry per LED with SVG coordinates
+    ]
+  },
+  "gpioPinMap": {
+    "D7": "D7",  // Physical pins
+    "D9": "D9",
+    "NEOPIXEL_0": "NEOPIXEL_0",  // Virtual labels for visualization
+    "NEOPIXEL_1": "NEOPIXEL_1"
+  },
+  "onboardComponents": ["pixels"]  // Must be "pixels" (plural)
+}
+```
+
+### What NOT to Do
+- ❌ Don't populate `pinBlocks` if you want no breadboard
+- ❌ Don't use `"pixel"` (singular) in `onboardComponents`
+- ❌ Don't add `marginWhenBreadboarding` with empty `pinBlocks`
+- ❌ Don't create custom TypeScript files with `light.createStrip()` at namespace level
+  - This breaks WebUSB on localhost due to parts system analysis
+  - Students call `light.createStrip()` in their code, not in board configs
+
+### NeoPixel Labels
+- `NEOPIXEL_0`, `NEOPIXEL_1` are **virtual labels** for visualization only
+- They map to `leds` array entries by matching the `label` field
+- Simulator sorts them numerically automatically
+- These are NOT physical pins - just SVG coordinates
+
+### Reference
+- See `docs/boards/add-a-new-board.md` Step 3.5 for full documentation
+- See `libs/kinara-pcb-v1/` for working example (25 LEDs, dual strips)
+
