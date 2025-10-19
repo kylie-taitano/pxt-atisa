@@ -168,3 +168,47 @@ Before coding, explain:
 - See `docs/boards/add-a-new-board.md` Step 3.5 for full documentation
 - See `libs/kinara-pcb-v1/` for working example (25 LEDs, dual strips)
 
+## WebUSB and Localhost Testing
+
+### Known WebUSB Issues on Localhost
+1. **driveDisplayName must match physical bootloader**
+   - If board shows "ITSYBITSYBOOT" in bootloader mode, use that in board.json
+   - Mismatch causes WebUSB to connect but transfer times out silently
+   
+2. **WebUSB may not work on localhost even with correct config**
+   - Symptoms: Board enters bootloader (LED changes), but transfer fails
+   - Falls back to .uf2 file download prompt
+   - May work on production makecode.com but fail locally
+   - Root cause often unclear - could be parts system, browser permissions, or UF2 generation
+
+3. **Debugging WebUSB failures:**
+   - Check if same code works with different board definition (e.g., ItsyBitsy)
+   - Enable debug logging: `localStorage.setItem('pxt_log', '1')`
+   - Check Network tab in DevTools during download
+   - Compare pxt.json dependencies and features between working/broken boards
+   - Test manual .uf2 upload to verify compiled code is valid
+
+### Dual NeoPixel Pin Support (Multiple Physical Strips)
+
+**Challenge:** Simulator only supports one `neopixelPin`, but hardware has multiple pins
+
+**Solution:** Runtime detection with lazy initialization
+```typescript
+function isSimulator(): boolean {
+    return !control.deviceDalVersion() || control.deviceDalVersion() === "sim";
+}
+
+let _unified: light.NeoPixelStrip = null;
+
+export function strip9(): light.NeoPixelStrip {
+    if (isSimulator()) {
+        if (!_unified) _unified = light.createNeoPixelStrip(pins.D9, 25);
+        return _unified.range(0, 14);  // Simulator: unified buffer
+    } else {
+        return light.createNeoPixelStrip(pins.D9, 14);  // Hardware: real pin
+    }
+}
+```
+
+**Critical:** Never create strips at namespace level - always use lazy initialization to avoid parts system issues
+

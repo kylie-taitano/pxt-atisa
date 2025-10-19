@@ -139,6 +139,22 @@ The simulator will light up the corresponding `NEOPIXEL_X` coordinates defined i
 
 See `libs/kinara-pcb-v1/` for a complete working example of a board with 25 onboard NeoPixels across two physical strips.
 
+### Step 3.6: Multiple NeoPixel Pins (Advanced - Optional)
+
+If your board has NeoPixels on **multiple physical data pins**, you need special handling because the simulator only supports rendering from one `neopixelPin`.
+
+**Example:** Kinara has 14 LEDs on D9 and 11 LEDs on D7 (separate pins).
+
+**Solution:** Use runtime detection in `libs/YOUR_BOARD/light.ts` to provide different behavior for simulator vs hardware. See `libs/kinara-pcb-v1/light.ts` for complete implementation.
+
+**Key points:**
+- Use lazy initialization (functions, not constants) to avoid parts system analysis at module load
+- In simulator: Create unified buffer with `.range()` to render all LEDs
+- On hardware: Create separate strips on actual pins for independent control
+- Students use function calls: `light.strip9()` instead of properties
+
+**Known limitation:** WebUSB may not work reliably on localhost with custom board definitions, even when configuration is correct. Test on production makecode.com or use ItsyBitsy board definition for local development.
+
 ## Step 4: minifiy board.svg
 
 Run

@@ -26,12 +26,6 @@ namespace light {
     }
 
     /**
-     * Create the unified strip once for simulator use
-     * This ensures strip9 and strip7 share the same buffer
-     */
-    const _unifiedStrip = light.createNeoPixelStrip(pins.D9, 25);
-
-    /**
      * Get the strip for D9 (14 LEDs)
      * - Simulator: Range [0-13] of unified 25-LED buffer
      * - Hardware: Independent 14-LED strip on D9 pin
@@ -42,7 +36,11 @@ namespace light {
     export function strip9(): light.NeoPixelStrip {
         if (!_strip9) {
             if (isSimulator()) {
-                _strip9 = _unifiedStrip.range(0, 14);
+                // Create unified strip on first call (lazy initialization)
+                if (!_unified) {
+                    _unified = light.createNeoPixelStrip(pins.D9, 25);
+                }
+                _strip9 = _unified.range(0, 14);
             } else {
                 _strip9 = light.createNeoPixelStrip(pins.D9, 14);
             }
@@ -61,7 +59,11 @@ namespace light {
     export function strip7(): light.NeoPixelStrip {
         if (!_strip7) {
             if (isSimulator()) {
-                _strip7 = _unifiedStrip.range(14, 11);
+                // Create unified strip on first call (lazy initialization)
+                if (!_unified) {
+                    _unified = light.createNeoPixelStrip(pins.D9, 25);
+                }
+                _strip7 = _unified.range(14, 11);
             } else {
                 _strip7 = light.createNeoPixelStrip(pins.D7, 11);
             }
