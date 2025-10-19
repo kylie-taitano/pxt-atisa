@@ -6,7 +6,13 @@
     "width": 400,
     "height": 300,
     "pinDist": 15,
-    "pinBlocks": [],
+    "pinBlocks": [
+      {
+        "x": 10,
+        "y": 10,
+        "labels": ["D9", "D7", "GND", "VCC"]
+      }
+    ],
     "leds": [
       {"x": 80, "y": 60, "color": "neopixel", "label": "NEOPIXEL_0"},
       {"x": 120, "y": 60, "color": "neopixel", "label": "NEOPIXEL_1"},
@@ -37,7 +43,12 @@
     "buttons": [],
     "touchPads": []
   },
-  "gpioPinMap": {},
+  "gpioPinMap": {
+    "D9": "D9",
+    "D7": "D7",
+    "GND": "GND",
+    "VCC": "VCC"
+  },
   "groundPins": ["GND"],
   "threeVoltPins": ["VCC"],
   "fiveVoltPins": [],
