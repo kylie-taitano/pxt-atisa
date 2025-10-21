@@ -32,6 +32,8 @@
         "libs/feather",
         "libs/proximity",
         "libs/kinara-pcb-v1",
+        "libs/kinara-test",
+        "libs/kinara-working",
         "libs/adafruit-trinket-m0",
         "libs/adafruit-circuit-playground-express",
         "libs/adafruit-feather-m0-express",
@@ -69,6 +71,16 @@
             {
                 "name": "ItsyBitsy M0 Express",
                 "url": "libs/kinara-pcb-v1",
+                "variant": "samd21"
+            },
+            {
+                "name": "Kinara Test (Vanilla Copy)",
+                "url": "libs/kinara-test",
+                "variant": "samd21"
+            },
+            {
+                "name": "Kinara Working",
+                "url": "libs/kinara-working",
                 "variant": "samd21"
             },
             {

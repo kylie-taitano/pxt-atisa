@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="300" width="400" viewBox="0 0 400 300">
+  <!-- Board outline -->
+  <rect x="50" y="30" width="300" height="240" rx="10" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  
+  <!-- Board title -->
+  <text x="200" y="20" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Kinara PCB v1</text>
+  
+  <!-- D9 NeoPixel Strip (14 LEDs) -->
+  <!-- Row 1: 7 LEDs (D9_0 to D9_6) -->
+  <circle cx="80" cy="60" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_0"/>
+  <circle cx="120" cy="60" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_1"/>
+  <circle cx="160" cy="60" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_2"/>
+  <circle cx="200" cy="60" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_3"/>
+  <circle cx="240" cy="60" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_4"/>
+  <circle cx="280" cy="60" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_5"/>
+  <circle cx="320" cy="60" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_6"/>
+  
+  <!-- Row 2: 7 LEDs (D9_7 to D9_13) -->
+  <circle cx="80" cy="100" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_7"/>
+  <circle cx="120" cy="100" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_8"/>
+  <circle cx="160" cy="100" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_9"/>
+  <circle cx="200" cy="100" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_10"/>
+  <circle cx="240" cy="100" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_11"/>
+  <circle cx="280" cy="100" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_12"/>
+  <circle cx="320" cy="100" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_13"/>
+  
+  <!-- D7 NeoPixel Strip (11 LEDs) -->
+  <!-- Row 3: 6 LEDs (D7_0 to D7_5) -->
+  <circle cx="100" cy="140" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_0"/>
+  <circle cx="140" cy="140" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_1"/>
+  <circle cx="180" cy="140" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_2"/>
+  <circle cx="220" cy="140" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_3"/>
+  <circle cx="260" cy="140" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_4"/>
+  <circle cx="300" cy="140" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_5"/>
+  
+  <!-- Row 4: 5 LEDs (D7_6 to D7_10) -->
+  <circle cx="120" cy="180" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_6"/>
+  <circle cx="160" cy="180" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_7"/>
+  <circle cx="200" cy="180" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_8"/>
+  <circle cx="240" cy="180" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_9"/>
+  <circle cx="280" cy="180" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_10"/>
+  
+  <!-- Labels -->
+  <text x="60" y="80" font-family="Arial" font-size="12" font-weight="bold">D9</text>
+  <text x="60" y="160" font-family="Arial" font-size="12" font-weight="bold">D7</text>
+</svg>

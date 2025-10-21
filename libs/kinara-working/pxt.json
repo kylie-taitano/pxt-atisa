@@ -1,0 +1,46 @@
+{
+    "name": "kinara-working",
+    "description": "Kinara Holiday Lantern - Working board combining simulator and hardware support",
+    "files": [
+        "README.md",
+        "config.ts",
+        "device.d.ts",
+        "kinara.ts",
+        "board.json",
+        "board.svg"
+    ],
+    "core": true,
+    "dependencies": {
+        "core---samd": "file:../core---samd",
+        "buttons": "file:../buttons",
+        "light": "file:../light",
+        "pixel": "file:../pixel",
+        "touch": "file:../touch",
+        "mixer---samd": "file:../mixer---samd",
+        "serial": "file:../serial",
+        "storage": "file:../storage",
+        "accelerometer": "file:../accelerometer"
+    },
+    "public": true,
+    "compileServiceVariant": "samd21",
+    "features": [
+        "uf2",
+        "pixel",
+        "pinled",
+        "pind0",
+        "pind1",
+        "pina0",
+        "pina1",
+        "buttond0",
+        "buttond1",
+        "toucha0",
+        "toucha1",
+        "storage",
+        "light",
+        "screen",
+        "jacdac",
+        "music",
+        "accelerometer"
+    ]
+}
+

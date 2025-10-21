@@ -22,6 +22,8 @@ namespace config {
     export const PIN_D13 = DAL.PB12;
 
     export const PIN_LED = DAL.PA17;
+    export const PIN_NEOPIXEL = DAL.PA12;  // D9 pin (primary NeoPixel strip for simulator)
+    export const NUM_NEOPIXELS = 25;
 
     export const PIN_SDA = DAL.PA06;
     export const PIN_SCL = DAL.PA07;
