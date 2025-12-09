@@ -19,6 +19,7 @@ clients/**/bin/**
 clients/**/obj/**
 clients/electron/projects
 menorah-with-sensor.ts
+test-motion-button.ts
 
 videos/**
 *.user

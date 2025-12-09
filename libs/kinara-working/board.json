@@ -34,7 +34,15 @@
                   {"x": 220, "y": 180, "color": "neopixel", "label": "NEOPIXEL_23"},
                   {"x": 260, "y": 180, "color": "neopixel", "label": "NEOPIXEL_24"}
                 ],
-    "buttons": [],
+    "buttons": [
+      {
+        "x": 340,
+        "y": 150,
+        "w": 25,
+        "h": 25,
+        "label": "D2"
+      }
+    ],
     "touchPads": []
   },
   "gpioPinMap": {

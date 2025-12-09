@@ -5,6 +5,7 @@ namespace kinara {
     let motionSensorInitialized = false;
     let lastProximityReading = 0;
     let debounceCounter = 0;
+    let lastButtonState = false;  // Track button state for edge detection (simulator only)
     const MOTION_SENSOR_ADDR = 0x60;
     const MOVEMENT_THRESHOLD = 15;
     const DEBOUNCE_STEPS = 10;  // 500ms (10 × 50ms) - matches other ornament code for quick toggle behavior
@@ -51,6 +52,33 @@ namespace kinara {
     //% blockId=kinara_isMotionDetected block="motion detected"
     //% weight=85
     export function isMotionDetected(): boolean {
+        // Check if we're in simulator mode
+        if (control.deviceDalVersion() === "sim") {
+            // Simulator: Use button to simulate motion detection with edge detection
+            // Update debounce counter
+            if (debounceCounter > 0) {
+                debounceCounter--;
+            }
+            
+            // Read current button state
+            const currentButtonState = input.buttonD2.isPressed();
+            
+            // Detect edge: button transition from not-pressed (false) to pressed (true)
+            const buttonJustPressed = currentButtonState && !lastButtonState;
+            
+            // Update button state for next call
+            lastButtonState = currentButtonState;
+            
+            // Check if button was just pressed (edge detected) and debounce period expired
+            if (buttonJustPressed && debounceCounter === 0) {
+                debounceCounter = DEBOUNCE_STEPS;  // Start debounce period
+                return true;  // Motion detected!
+            }
+            
+            return false;  // No motion detected
+        }
+        
+        // Hardware: Use real I2C motion sensor
         if (!motionSensorInitialized) {
             initMotionSensor();  // Auto-initialize if not done
         }
