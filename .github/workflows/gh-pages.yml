@@ -1,0 +1,96 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+      
+      - name: Install PXT CLI
+        run: |
+          sudo npm install -g pxt
+      
+      - name: Install dependencies
+        run: |
+          npm install
+      
+      - name: Clone pxt-core
+        run: |
+          if [ ! -d ../pxt ]; then
+            git clone --depth=1 https://github.com/microsoft/pxt.git ../pxt
+            cd ../pxt
+            npm install
+            npm run build
+          fi
+        working-directory: .
+      
+      - name: Clone pxt-common-packages
+        run: |
+          if [ ! -d ../pxt-common-packages ]; then
+            git clone --depth=1 https://github.com/microsoft/pxt-common-packages.git ../pxt-common-packages
+            cd ../pxt-common-packages
+            npm install
+          fi
+        working-directory: .
+      
+      - name: Link pxt dependencies
+        run: |
+          rm -rf node_modules/pxt-core
+          rm -rf node_modules/pxt-common-packages
+          pxt link ../pxt
+          pxt link ../pxt-common-packages
+      
+      - name: Build static package
+        run: |
+          pxt staticpkg --route pxt-atisa || true
+      
+      - name: Deploy to gh-pages
+        if: success()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Create or checkout gh-pages branch
+          git checkout --orphan gh-pages || git checkout gh-pages
+          git reset --hard
+          
+          # Copy built files
+          if [ -d "built/packaged/pxt-atisa" ]; then
+            cp -r built/packaged/pxt-atisa/* .
+            # Always copy static files from docs/static to ensure they're included
+            # (pxt staticpkg might not include all static assets)
+            if [ -d "docs/static" ]; then
+              mkdir -p static
+              cp -r docs/static/* static/ 2>/dev/null || true
+            fi
+            rm -rf built node_modules pxt_modules libs docs .github .vscode .pxt
+            rm -f .gitignore .cursorrules LICENSE README.md SECURITY.md .travis.yml .clang-format .gitattributes
+            find . -name "*.md" -not -path "./docs/*" -delete || true
+          fi
+          
+          # Commit and push
+          git add -A
+          git commit -m "Deploy to GitHub Pages [skip ci]" || exit 0
+          git push -f origin gh-pages || exit 0
