@@ -79,10 +79,11 @@ jobs:
           # Copy built files
           if [ -d "built/packaged/pxt-atisa" ]; then
             cp -r built/packaged/pxt-atisa/* .
-            # Ensure static files are preserved (pxt staticpkg should include them, but double-check)
-            if [ -d "docs/static" ] && [ ! -d "static" ]; then
+            # Always copy static files from docs/static to ensure they're included
+            # (pxt staticpkg might not include all static assets)
+            if [ -d "docs/static" ]; then
               mkdir -p static
-              cp -r docs/static/* static/
+              cp -r docs/static/* static/ 2>/dev/null || true
             fi
             rm -rf built node_modules pxt_modules libs docs .github .vscode .pxt
             rm -f .gitignore .cursorrules LICENSE README.md SECURITY.md .travis.yml .clang-format .gitattributes
