@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" height="300" width="400" viewBox="0 0 400 300">
+  <defs>
+    <!-- Mask: convert stroke outline to filled shape for masking -->
+    <mask id="kinaraMask">
+      <rect width="400" height="300" fill="black"/>
+      <g transform="translate(51, -35) scale(0.355)">
+        <!-- Simplified polygon approximation of Kinara shape -->
+        <polygon fill="white" points="0,350.046 162.103,187.943 420,126.855 677.897,187.943 840,350.046 840,510.221 420,841.888 0,510.221"/>
+      </g>
+    </mask>
+  </defs>
+  
+  <!-- Brown background masked to Kinara shape -->
+  <rect width="400" height="300" fill="#7B3C1B" mask="url(#kinaraMask)"/>
+  
   <!-- Kinara board outline (scaled from Diffuser_Kinara.svg) -->
   <g transform="translate(51, -35) scale(0.355)">
     <path style="stroke:#000000; stroke-width:2.4; stroke-linejoin:round; stroke-linecap:round; fill:none" d="M 313.436 187.943L 313.436 198.178"/>
