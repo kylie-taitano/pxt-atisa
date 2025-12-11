@@ -494,3 +494,119 @@ strip7.setAll(0x0000ff)  // Blue
 
 **Next Step:** Add 25 LED position entries to `board.json` for proper simulator visualization
 
+
+## PR Description Template
+
+# Add Kinara Holiday Lantern Board Support
+
+## Overview
+
+This PR adds support for the Kinara Holiday Lantern PCB v1, a custom board based on the Adafruit ItsyBitsy M0 Express, featuring 25 NeoPixel LEDs arranged in a Kwanzaa Kinara layout with motion sensor and sound capabilities.
+
+## Features
+
+### 🎨 Hardware Support
+
+- **25 NeoPixel LEDs**: 14 LEDs on pin D9 (flames + candles) and 11 LEDs on pin D7 (base)
+- **Motion Sensor**: VCNL4040 proximity sensor via I2C (SDA/SCL) with interrupt on D2
+- **Sound Output**: Speaker on pin A0
+- **WebUSB Support**: Full device matching and upload functionality
+
+### 🎯 Custom API
+
+- **`kinara.strip()`**: Unified API that abstracts dual NeoPixel strips into a single virtual strip
+- **`kinara.initMotionSensor()`**: Initialize VCNL4040 proximity sensor
+- **`kinara.isMotionDetected()`**: Motion detection with debouncing for toggle behavior
+- Automatic simulator vs hardware detection for seamless development
+
+### 🖥️ Simulator
+
+- **Custom SVG**: Kinara lantern artwork instead of generic board outline
+- **25 LED Visualization**: All LEDs individually addressable and visible
+- **Motion Sensor Testing**: Clickable button (D2) for simulator testing
+- **Edge Detection**: Simulator button implements proper edge detection to match hardware behavior
+
+### 📚 Documentation
+
+- Comprehensive åtisa architecture guide
+- Updated board creation documentation
+- Kinara-specific README with usage examples
+
+## Technical Details
+
+### Board Configuration
+
+- **Base Board**: Adafruit ItsyBitsy M0 Express (SAMD21)
+- **LED Layout**: D9 (14 LEDs) + D7 (11 LEDs) = 25 total
+- **I2C Pins**: SDA (A4/PA06), SCL (A5/PA07)
+- **Motion Sensor**: VCNL4040 @ 0x60
+- **Simulator Mode**: Runtime detection handles unified vs dual-strip rendering
+
+### Motion Sensor Implementation
+
+- Debouncing: 500ms (10 steps × 50ms) for reliable toggle behavior
+- Threshold: 15 units change in proximity reading
+- Simulator: Uses `input.buttonD2` with edge detection for consistent behavior
+
+### Build System
+
+- Removed `dist/` directory from version control (auto-generated build artifacts)
+- Added `dist/` to `.gitignore` to prevent future tracking
+
+## Files Changed
+
+### New Files
+
+- `libs/kinara-working/` - Complete board configuration
+  - `board.json` - Simulator layout and pin mapping
+  - `board.svg` - Custom Kinara artwork
+  - `config.ts` - Pin definitions
+  - `kinara.ts` - Custom API and motion sensor logic
+  - `pxt.json` - Board metadata and dependencies
+  - `device.d.ts` - Device type definitions
+  - `README.md` - Usage documentation
+
+### Documentation
+
+- `docs/about-atisa.md` - Architecture overview
+- `docs/boards/add-a-new-board.md` - Updated board creation guide
+
+### Configuration
+
+- `.cursorrules` - Development guidelines and patterns
+- `.gitignore` - Added `dist/` exclusion
+- `pxtarget.json` - Board definitions
+
+### Removed
+
+- `libs/kinara-pcb-v1/` - Old experimental board (replaced by kinara-working)
+
+## Testing
+
+### Hardware Testing
+
+- ✅ WebUSB upload and device detection
+- ✅ Dual NeoPixel strips (D9 and D7) independently controlled
+- ✅ Motion sensor toggle behavior
+- ✅ Sound output on A0
+- ✅ LED colors match Kwanzaa tradition (red, green, black, gold)
+
+### Simulator Testing
+
+- ✅ All 25 LEDs visible and individually controllable
+- ✅ Motion sensor button clickable and functional
+- ✅ Edge detection prevents double-triggering
+- ✅ Custom Kinara SVG renders correctly
+
+## Notes
+
+- This board is part of the åtisa holiday lantern series (4 boards planned total)
+- The `kinara.strip()` API provides a clean abstraction for student curriculum
+- Simulator and hardware use the same code - no conditional compilation needed
+- Motion sensor works identically in simulator (via button) and hardware (via I2C)
+
+## Related
+
+- Based on existing holiday lantern ornament patterns
+- Follows åtisa board development best practices
+- Designed for children's book curriculum integration
