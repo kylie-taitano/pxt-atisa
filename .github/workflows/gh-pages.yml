@@ -79,13 +79,13 @@ jobs:
           # Copy built files
           if [ -d "built/packaged/pxt-atisa" ]; then
             cp -r built/packaged/pxt-atisa/* .
-            # Always copy static files from docs/static to ensure they're included
-            # (pxt staticpkg might not include all static assets)
-            if [ -d "docs/static" ]; then
-              mkdir -p static
-              cp -r docs/static/* static/ 2>/dev/null || true
+            # MakeCode builds assets to docs/static/, preserve that directory
+            # Remove source docs files but keep docs/static/ from built output
+            if [ -d "docs" ]; then
+              # Remove everything in docs except static/ (which contains MakeCode's built assets)
+              find docs -mindepth 1 -maxdepth 1 ! -name "static" -exec rm -rf {} + 2>/dev/null || true
             fi
-            rm -rf built node_modules pxt_modules libs docs .github .vscode .pxt
+            rm -rf built node_modules pxt_modules libs .github .vscode .pxt
             rm -f .gitignore .cursorrules LICENSE README.md SECURITY.md .travis.yml .clang-format .gitattributes
             find . -name "*.md" -not -path "./docs/*" -delete || true
           fi
