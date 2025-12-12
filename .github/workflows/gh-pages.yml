@@ -90,6 +90,9 @@ jobs:
             if [ -d "/tmp/source-static" ]; then
               mkdir -p docs/static
               cp -r /tmp/source-static/* docs/static/ 2>/dev/null || true
+              # Also copy to /static/ for markdown references that use /static/ paths
+              mkdir -p static
+              cp -r /tmp/source-static/* static/ 2>/dev/null || true
             fi
             
             # Remove source docs files but keep docs/static/ (now has both MakeCode's + our source files)
