@@ -1,0 +1,35 @@
+# Accelerometer
+
+## Examples
+
+### ~ codecard
+
+* name: Shake
+* url: /projects/accelerometer/shake
+* cardType: example
+* imageUrl: /pxt-atisa/static/projects/accelerometer/shake/gallery.png
+* largeImageUrl: /pxt-atisa/static/projects/accelerometer/shake/gallery.gif
+* videoUrl: /pxt-atisa/static/projects/accelerometer/shake/gallery.mp4
+
+
+---
+
+* name: Level
+* url: /projects/accelerometer/level
+* cardType: example
+* imageUrl: /pxt-atisa/static/projects/accelerometer/level/gallery.png
+* largeImageUrl: /pxt-atisa/static/projects/accelerometer/level/gallery.gif
+* videoUrl: /pxt-atisa/static/projects/accelerometer/level/gallery.mp4
+
+
+---
+
+* name: Log Values
+* url: /projects/accelerometer/log-values
+* cardType: example
+* imageUrl: /pxt-atisa/static/projects/accelerometer/log-values/gallery.png
+* largeImageUrl: /pxt-atisa/static/projects/accelerometer/log-values/gallery.gif
+* videoUrl: /pxt-atisa/static/projects/accelerometer/log-values/gallery.mp4
+
+
+### ~
