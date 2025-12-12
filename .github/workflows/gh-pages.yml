@@ -66,28 +66,6 @@ jobs:
         run: |
           pxt staticpkg --route pxt-atisa || true
       
-      - name: Debug - Check what staticpkg created
-        run: |
-          echo "=== Contents of built/packaged/pxt-atisa/docs/static/ ==="
-          ls -la built/packaged/pxt-atisa/docs/static/ 2>/dev/null || echo "docs/static/ does not exist in built output"
-          echo ""
-          echo "=== Looking for logo.svg in built output ==="
-          find built/packaged/pxt-atisa -name "logo.svg" 2>/dev/null || echo "logo.svg not found in built output"
-          echo ""
-          echo "=== Looking for Microsoft-logo files in built output ==="
-          find built/packaged/pxt-atisa -name "Microsoft-logo*" 2>/dev/null || echo "Microsoft-logo files not found in built output"
-      
-      - name: Debug - Check source static files before branch switch
-        run: |
-          echo "=== Source docs/static/ contents ==="
-          ls -la docs/static/ 2>/dev/null || echo "docs/static/ does not exist in source"
-          echo ""
-          echo "=== Checking for logo.svg in source ==="
-          ls -la docs/static/logo.svg 2>/dev/null || echo "logo.svg not found in source"
-          echo ""
-          echo "=== Checking for Microsoft-logo files in source ==="
-          ls -la docs/static/Microsoft-logo* 2>/dev/null || echo "Microsoft-logo files not found in source"
-      
       - name: Deploy to gh-pages
         if: success()
         run: |
@@ -98,8 +76,6 @@ jobs:
           if [ -d "docs/static" ]; then
             mkdir -p /tmp/source-static
             cp -r docs/static/* /tmp/source-static/ 2>/dev/null || true
-            echo "=== Saved source static files to /tmp/source-static/ ==="
-            ls -la /tmp/source-static/ | head -20
           fi
           
           # Create or checkout gh-pages branch
@@ -110,25 +86,10 @@ jobs:
           if [ -d "built/packaged/pxt-atisa" ]; then
             cp -r built/packaged/pxt-atisa/* .
             
-            echo "=== Debug: Contents of docs/static/ after copying built files ==="
-            ls -la docs/static/ 2>/dev/null || echo "docs/static/ does not exist"
-            echo ""
-            echo "=== Debug: Looking for logo.svg ==="
-            find docs/static -name "logo.svg" 2>/dev/null || echo "logo.svg not found"
-            echo ""
-            echo "=== Debug: Looking for Microsoft-logo files ==="
-            find docs/static -name "Microsoft-logo*" 2>/dev/null || echo "Microsoft-logo files not found"
-            echo ""
-            
             # Copy source static files (pxt staticpkg doesn't include them)
             if [ -d "/tmp/source-static" ]; then
               mkdir -p docs/static
-              echo "=== Copying source static files to docs/static/ ==="
               cp -r /tmp/source-static/* docs/static/ 2>/dev/null || true
-              echo "=== Files copied. Verifying logo.svg exists ==="
-              ls -la docs/static/logo.svg 2>/dev/null || echo "WARNING: logo.svg still not found after copy"
-              echo "=== Verifying Microsoft-logo files exist ==="
-              ls -la docs/static/Microsoft-logo* 2>/dev/null || echo "WARNING: Microsoft-logo files still not found after copy"
             fi
             
             # Remove source docs files but keep docs/static/ (now has both MakeCode's + our source files)
@@ -144,13 +105,8 @@ jobs:
           touch .nojekyll
           
           # Final verification before commit
-          echo "=== Final check: docs/static/ contents before commit ==="
-          ls -la docs/static/ | head -20
-          echo ""
-          echo "=== Final check: logo.svg ==="
+          echo "=== Verification: Static files ==="
           ls -la docs/static/logo.svg 2>/dev/null && echo "✅ logo.svg exists" || echo "❌ logo.svg missing"
-          echo ""
-          echo "=== Final check: Microsoft-logo files ==="
           ls -la docs/static/Microsoft-logo* 2>/dev/null && echo "✅ Microsoft-logo files exist" || echo "❌ Microsoft-logo files missing"
           
           # Commit and push
