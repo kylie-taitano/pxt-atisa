@@ -151,6 +151,97 @@ class MenorahVirtualStrip {
     }
     
     /**
+     * Set color of a flame (1-9, left to right)
+     * Flame 1 = leftmost, Flame 9 = rightmost
+     */
+    //% blockId=menorah_setFlame block="%strip|set flame %flameNumber|to %color"
+    //% flameNumber.min=1 flameNumber.max=9
+    //% color.shadow="colorNumberPicker"
+    setFlame(flameNumber: number, color: number) {
+        if (flameNumber < 1 || flameNumber > 9) return; // Validate input
+        
+        let physicalIndex: number;
+        if (this.useVirtualStrip) {
+            // Simulator: visual labels match logical order (left-to-right)
+            // Flame 1 → visual index 0 (leftmost), Flame 9 → visual index 8 (rightmost)
+            physicalIndex = flameNumber - 1;
+        } else {
+            // Hardware: physical wiring is backwards for flames
+            // Physical index 8 = leftmost, physical index 0 = rightmost
+            // Flame 1 (logical leftmost) → Physical index 8, Flame 9 (logical rightmost) → Physical index 0
+            physicalIndex = 8 - (flameNumber - 1);
+        }
+        this.setPixelColor(physicalIndex, color);
+    }
+    
+    /**
+     * Set color of a candle (1-9, left to right)
+     * Candle 1 = leftmost, Candle 5 = shammash (middle), Candle 9 = rightmost
+     */
+    //% blockId=menorah_setCandle block="%strip|set candle %candleNumber|to %color"
+    //% candleNumber.min=1 candleNumber.max=9
+    //% color.shadow="colorNumberPicker"
+    setCandle(candleNumber: number, color: number) {
+        // Logical mapping: Candle 1 (leftmost) → Physical index 9, Candle 9 (rightmost) → Physical index 17
+        // Formula: physicalIndex = 8 + candleNumber
+        if (candleNumber < 1 || candleNumber > 9) return; // Validate input
+        const physicalIndex = 8 + candleNumber;
+        this.setPixelColor(physicalIndex, color);
+    }
+    
+    /**
+     * Set color of a menorah base light (1-9, row by row, left to right)
+     * Base Light 1 = top left, Base Light 9 = bottom center
+     */
+    //% blockId=menorah_setMenorahBaseLight block="%strip|set menorah base light %baseNumber|to %color"
+    //% baseNumber.min=1 baseNumber.max=9
+    //% color.shadow="colorNumberPicker"
+    setMenorahBaseLight(baseNumber: number, color: number) {
+        // Logical mapping to physical indices 18-26
+        // Lookup array: [18, 19, 20, 21, 22, 23, 24, 25, 26]
+        // Row 1 (top): 1-3 → indices 18-20
+        // Row 2 (middle): 4-8 → indices 21-25
+        // Row 3 (bottom): 9 → index 26
+        if (baseNumber < 1 || baseNumber > 9) return; // Validate input
+        const basePhysicalIndices = [18, 19, 20, 21, 22, 23, 24, 25, 26];
+        const physicalIndex = basePhysicalIndices[baseNumber - 1];
+        this.setPixelColor(physicalIndex, color);
+    }
+    
+    /**
+     * Set all flames to the same color
+     */
+    //% blockId=menorah_setAllFlames block="%strip|set all flames to %color"
+    //% color.shadow="colorNumberPicker"
+    setAllFlames(color: number) {
+        for (let i = 1; i <= 9; i++) {
+            this.setFlame(i, color);
+        }
+    }
+    
+    /**
+     * Set all candles to the same color
+     */
+    //% blockId=menorah_setAllCandles block="%strip|set all candles to %color"
+    //% color.shadow="colorNumberPicker"
+    setAllCandles(color: number) {
+        for (let i = 1; i <= 9; i++) {
+            this.setCandle(i, color);
+        }
+    }
+    
+    /**
+     * Set all menorah base lights to the same color
+     */
+    //% blockId=menorah_setAllMenorahBaseLights block="%strip|set all menorah base lights to %color"
+    //% color.shadow="colorNumberPicker"
+    setAllMenorahBaseLights(color: number) {
+        for (let i = 1; i <= 9; i++) {
+            this.setMenorahBaseLight(i, color);
+        }
+    }
+    
+    /**
      * Set all pixels to same color
      */
     //% blockId=menorah_setAll block="%strip|set all %color"
