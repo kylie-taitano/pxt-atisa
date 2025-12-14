@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="300" width="400" viewBox="0 0 400 300">
+  <!-- Royal blue background rectangle -->
+  <rect x="0" y="0" width="400" height="300" fill="#4169E1" stroke="none"/>
+  
+  <!-- Menorah outline (scaled from 800x600 to 400x300, scale by 0.5) -->
+  <g transform="scale(0.5)">
+    <path d="M383.24 522.78L416.76 522.78" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M383.24 548.02L383.24 522.78Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M416.76 548.02L383.24 548.02" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M416.76 522.78L416.76 548.02Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M172.58 141.49L172.58 230.03Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M165.42 141.49L172.58 141.49" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M165.42 97.39L165.42 141.49Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M223.4 53.47L209.34 53.47" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M223.4 60.63L223.4 53.47Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M311.94 60.63L223.4 60.63" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M311.94 53.47L311.94 60.63Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M326.01 53.47L311.94 53.47" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M488.06 53.47L473.99 53.47" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M488.06 60.63L488.06 53.47Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M576.6 60.63L488.06 60.63" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M576.6 53.47L576.6 60.63Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M590.66 53.47L576.6 53.47" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M634.58 141.49L634.58 97.39Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M627.42 141.49L634.58 141.49" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M627.42 230.03L627.42 141.49Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M634.58 230.03L627.42 230.03" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M634.58 274.14L634.58 230.03Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M603.8 362.68L609.94 366.34" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M564.25 419.26L559.73 413.71" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M451.04 492.83L451.04 486.67Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M497.62 531.79L469.8 520.59" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M494.95 538.43L497.62 531.79" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M531.03 552.96L494.95 538.43" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M533.7 546.32L531.03 552.96" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M571.31 561.46L533.7 546.32" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M573.22 591.07L573.22 564.29Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M506.33 594.12L570.17 594.12" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M506.33 589.86L506.33 594.12Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M459.16 589.86L506.33 589.86" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M459.16 594.12L459.16 589.86Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M340.84 594.12L459.16 594.12" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M340.84 589.86L340.84 594.12Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M293.67 589.86L340.84 589.86" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M293.67 594.12L293.67 589.86Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M229.83 594.12L293.67 594.12" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M226.78 564.29L226.78 591.07Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M266.3 546.32L228.69 561.46" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M268.97 552.96L266.3 546.32" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M305.05 538.43L268.97 552.96" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M302.38 531.79L305.05 538.43" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M330.2 520.59L302.38 531.79" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M348.96 486.67L348.96 492.83Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M240.27 413.71L235.75 419.26" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M190.06 366.34L196.2 362.68" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M165.42 230.03L165.42 274.14Z" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M172.58 230.03L165.42 230.03" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 209.34 53.47 A 43.915 43.915 0 0 0 165.42 97.39" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 326.01 53.47 A 57.289 57.289 0 0 0 378.13 19.95" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 421.87 19.95 A 24.03 24.03 0 0 0 378.13 19.95" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 421.87 19.95 A 57.289 57.289 0 0 0 473.99 53.47" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 634.58 97.39 A 43.915 43.915 0 0 0 590.66 53.47" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 609.94 366.34 A 184.896 184.896 0 0 0 634.58 274.14" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 559.73 413.71 A 177.741 177.741 0 0 0 603.8 362.68" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 476.62 457.06 A 184.896 184.896 0 0 0 564.25 419.26" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 476.62 457.06 A 29.934 29.934 0 0 0 451.04 486.67" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 451.04 492.83 A 29.934 29.934 0 0 0 469.8 520.59" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 573.22 564.29 A 3.052 3.052 0 0 0 571.31 561.46" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 570.17 594.12 A 3.052 3.052 0 0 0 573.22 591.07" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 226.78 591.07 A 3.052 3.052 0 0 0 229.83 594.12" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 228.69 561.46 A 3.052 3.052 0 0 0 226.78 564.29" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 330.2 520.59 A 29.934 29.934 0 0 0 348.96 492.83" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 348.96 486.67 A 29.934 29.934 0 0 0 323.38 457.06" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 235.75 419.26 A 184.896 184.896 0 0 0 323.38 457.06" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 196.2 362.68 A 177.741 177.741 0 0 0 240.27 413.71" fill="none" stroke="white" stroke-width="2.4"/>
+    <path d="M 165.42 274.14 A 184.896 184.896 0 0 0 190.06 366.34" fill="none" stroke="white" stroke-width="2.4"/>
+  </g>
+
+  <!-- D9 NeoPixel Strip (18 LEDs) - positioned within menorah outline -->
+  <!-- Row 1: 9 LEDs (D9_0 to D9_8) - evenly spaced within menorah width (110 to 286, 22px apart) -->
+  <circle cx="110" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_0"/>
+  <circle cx="132" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_1"/>
+  <circle cx="154" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_2"/>
+  <circle cx="176" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_3"/>
+  <circle cx="198" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_4"/>
+  <circle cx="220" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_5"/>
+  <circle cx="242" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_6"/>
+  <circle cx="264" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_7"/>
+  <circle cx="286" cy="45" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_8"/>
+  
+  <!-- Row 2: 9 LEDs (D9_9 to D9_17) - evenly spaced within menorah width (110 to 286, 22px apart) -->
+  <circle cx="110" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_9"/>
+  <circle cx="132" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_10"/>
+  <circle cx="154" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_11"/>
+  <circle cx="176" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_12"/>
+  <circle cx="198" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_13"/>
+  <circle cx="220" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_14"/>
+  <circle cx="242" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_15"/>
+  <circle cx="264" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_16"/>
+  <circle cx="286" cy="75" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D9_17"/>
+  
+  <!-- D7 NeoPixel Strip (9 LEDs) - positioned within menorah base -->
+  <!-- Row 3: 3 LEDs (D7_0 to D7_2) -->
+  <circle cx="130" cy="120" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_0"/>
+  <circle cx="200" cy="120" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_1"/>
+  <circle cx="270" cy="120" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_2"/>
+  
+  <!-- Row 4: 5 LEDs (D7_3 to D7_7) -->
+  <circle cx="140" cy="165" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_3"/>
+  <circle cx="175" cy="165" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_4"/>
+  <circle cx="200" cy="165" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_5"/>
+  <circle cx="225" cy="165" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_6"/>
+  <circle cx="260" cy="165" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_7"/>
+  
+  <!-- Row 5: 1 LED (D7_8) - middle of row -->
+  <circle cx="200" cy="260" r="6" fill="#333" stroke="#000" stroke-width="0.5" id="NEOPIXEL_D7_8"/>
+  
+  <!-- Motion sensor button on Row 6 (middle) -->
+  <rect x="187.5" y="270" width="25" height="25" fill="#ccc" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="200" y="287" text-anchor="middle" font-family="Arial" font-size="10" fill="#000">D2</text>
+</svg>

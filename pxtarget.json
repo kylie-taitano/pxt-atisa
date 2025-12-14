@@ -32,6 +32,7 @@
         "libs/feather",
         "libs/proximity",
         "libs/kinara-working",
+        "libs/menorah-working",
         "libs/adafruit-trinket-m0",
         "libs/adafruit-circuit-playground-express",
         "libs/adafruit-feather-m0-express",
@@ -69,6 +70,11 @@
             {
                 "name": "ItsyBitsy M0 Express",
                 "url": "libs/kinara-working",
+                "variant": "samd21"
+            },
+            {
+                "name": "Menorah PCB v1",
+                "url": "libs/menorah-working",
                 "variant": "samd21"
             },
             {
