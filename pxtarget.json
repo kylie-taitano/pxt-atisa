@@ -32,11 +32,7 @@
         "libs/feather",
         "libs/proximity",
         "libs/kinara-working",
-        "libs/menorah-working",
-        "libs/adafruit-trinket-m0",
-        "libs/adafruit-circuit-playground-express",
-        "libs/adafruit-feather-m0-express",
-        "libs/adafruit-metro-m0-express"
+        "libs/menorah-working"
     ],
     "serial": {
         "useHF2": true,
@@ -75,26 +71,6 @@
             {
                 "name": "Menorah PCB v1",
                 "url": "libs/menorah-working",
-                "variant": "samd21"
-            },
-            {
-                "name": "Adafruit Trinket M0",
-                "url": "libs/adafruit-trinket-m0",
-                "variant": "samd21"
-            },
-            {
-                "name": "Adafruit Circuit Playground Express",
-                "url": "libs/adafruit-circuit-playground-express",
-                "variant": "samd21"
-            },
-            {
-                "name": "Adafruit Feather M0 Express",
-                "url": "libs/adafruit-feather-m0-express",
-                "variant": "samd21"
-            },
-            {
-                "name": "Adafruit Metro M0 Express",
-                "url": "libs/adafruit-metro-m0-express",
                 "variant": "samd21"
             }
         ],
