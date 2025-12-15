@@ -557,7 +557,7 @@ This PR adds support for the Kinara Holiday Lantern PCB v1, a custom board based
 
 ### New Files
 
-- `libs/kinara-working/` - Complete board configuration
+- `libs/kwanzaa-kinara-lantern/` - Complete board configuration
   - `board.json` - Simulator layout and pin mapping
   - `board.svg` - Custom Kinara artwork
   - `config.ts` - Pin definitions
@@ -579,7 +579,7 @@ This PR adds support for the Kinara Holiday Lantern PCB v1, a custom board based
 
 ### Removed
 
-- `libs/kinara-pcb-v1/` - Old experimental board (replaced by kinara-working)
+- `libs/kinara-pcb-v1/` - Old experimental board (replaced by kwanzaa-kinara-lantern)
 
 ## Testing
 

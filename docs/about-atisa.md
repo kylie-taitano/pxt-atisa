@@ -45,7 +45,7 @@ libs/
     ├── board.svg            # ✏️ Create new: Cultural artwork with LED positions
     ├── [namespace].ts       # ✏️ Customize: LED counts, namespace name
     ├── config.ts            # ⚠️ Minor edit: NUM_NEOPIXELS only
-    ├── device.d.ts          # ✅ Copy as-is from kinara-working
+    ├── device.d.ts          # ✅ Copy as-is from kwanzaa-kinara-lantern
     ├── pxt.json             # ✏️ Update: name, description, file references
     └── README.md            # ✏️ Update: Board description
 ```
@@ -60,7 +60,7 @@ libs/
 
 ### Key Implementation Details
 
-**File:** `libs/kinara-working/kinara.ts`
+**File:** `libs/kwanzaa-kinara-lantern/kinara.ts`
 ```typescript
 namespace kinara {
     // Total: 25 LEDs
@@ -102,7 +102,7 @@ class KinaraVirtualStrip {
 ### Step 1: Copy Template
 ```bash
 cd /Users/kylietaitano/atisa/pxt-atisa
-cp -r libs/kinara-working libs/[new-board-name]
+cp -r libs/kwanzaa-kinara-lantern libs/[new-board-name]
 cd libs/[new-board-name]
 ```
 
@@ -242,12 +242,12 @@ export const NUM_NEOPIXELS = 30;  // Update to match total LED count
         "board.json",
         "board.svg"
     ]
-    // ... rest identical to kinara-working
+    // ... rest identical to kwanzaa-kinara-lantern
 }
 ```
 
 #### F. `device.d.ts` - No Changes
-Copy as-is from `kinara-working`
+Copy as-is from `kwanzaa-kinara-lantern`
 
 ### Step 3: Register Board in pxtarget.json
 
@@ -255,7 +255,7 @@ Add to `bundleddirs`:
 ```json
 "bundleddirs": [
     // ... existing entries ...
-    "libs/kinara-working",
+    "libs/kwanzaa-kinara-lantern",
     "libs/philippine-parol",
     "libs/chanukah-menorah",
     "libs/holiday-lantern"
@@ -267,7 +267,7 @@ Add to `boardDefinitions`:
 "boardDefinitions": [
     {
         "name": "ItsyBitsy M0 Express",
-        "url": "libs/kinara-working",
+        "url": "libs/kwanzaa-kinara-lantern",
         "variant": "samd21"
     },
     {
@@ -313,7 +313,7 @@ Add to `boardDefinitions`:
 2. **Update all LED counts consistently** - TOTAL, D9, D7
 3. **Add all NEOPIXEL_* entries to gpioPinMap** - One per LED
 4. **Test incrementally** - SVG → board.json → TypeScript
-5. **Use kinara-working as reference** - Proven working configuration
+5. **Use kwanzaa-kinara-lantern as reference** - Proven working configuration
 
 ## Board Information Template
 
@@ -394,7 +394,7 @@ Students learn:
 
 ## References
 
-- **Kinara Working Implementation:** `/libs/kinara-working/`
+- **Kinara Working Implementation:** `/libs/kwanzaa-kinara-lantern/`
 - **Board Creation Guide:** `/docs/boards/add-a-new-board.md`
 - **MakeCode Documentation:** https://makecode.com/targets/pxt
 - **ATISA Project Homepage:** [Add URL when available]
@@ -403,7 +403,7 @@ Students learn:
 
 For technical support or questions about creating new holiday lantern boards:
 - Check the [Board Creation Guide](add-a-new-board.md)
-- Review the [Kinara implementation](../libs/kinara-working/)
+- Review the [Kinara implementation](../libs/kwanzaa-kinara-lantern/)
 - Contact: [Add support contact information]
 
 ---

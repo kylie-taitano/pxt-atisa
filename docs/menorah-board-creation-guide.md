@@ -2,11 +2,11 @@
 
 ## Context
 
-This guide is for creating the **Menorah Holiday Lantern** board configuration based on the existing **Kinara Holiday Lantern (kinara-working)** board. The menorah is one of 4 holiday lantern boards in the åtisa series.
+This guide is for creating the **Menorah Holiday Lantern** board configuration based on the existing **Kinara Holiday Lantern (kwanzaa-kinara-lantern)** board. The menorah is one of 4 holiday lantern boards in the åtisa series.
 
 ## Base Reference
 
-**Source Board:** `libs/kinara-working/`
+**Source Board:** `libs/kwanzaa-kinara-lantern/`
 
 Copy this entire directory structure as the starting point for the menorah board.
 
@@ -34,11 +34,11 @@ Copy this entire directory structure as the starting point for the menorah board
 ## Files to Create/Modify
 
 ### 1. Directory Structure
-Create new directory: `libs/menorah-working/` (or `libs/menorah-pcb-v1/`)
+Create new directory: `libs/chanukah-menorah-lantern/` (or `libs/menorah-pcb-v1/`)
 
 ### 2. `pxt.json`
 **Changes needed:**
-- Update `name`: Change from `"kinara-working"` to `"menorah-working"` (or `"menorah-pcb-v1"`)
+- Update `name`: Change from `"kwanzaa-kinara-lantern"` to `"chanukah-menorah-lantern"` (or `"menorah-pcb-v1"`)
 - Update `description`: Change to "Menorah Holiday Lantern - Working board..."
 - Keep all other fields identical (dependencies, features, compileServiceVariant, etc.)
 
@@ -204,10 +204,10 @@ After creating the menorah board:
 
 ## Files Reference
 
-### From kinara-working (copy these as templates):
+### From kwanzaa-kinara-lantern (copy these as templates):
 
 ```
-libs/kinara-working/
+libs/kwanzaa-kinara-lantern/
 ├── pxt.json                    → Modify: name, description
 ├── board.json                  → Modify: LED array, gpioPinMap (add 2 more LEDs)
 ├── board.svg                   → Replace: Menorah artwork + 27 LED positions
@@ -216,14 +216,14 @@ libs/kinara-working/
 ├── device.d.ts                 → Copy as-is
 ├── README.md                   → Modify: Update all references
 └── _locales/                   → Modify: Rename files and update strings
-    ├── kinara-working-jsdoc-strings.json
-    └── kinara-working-strings.json
+    ├── kwanzaa-kinara-lantern-jsdoc-strings.json
+    └── kwanzaa-kinara-lantern-strings.json
 ```
 
 ## Next Steps
 
-1. Create `libs/menorah-working/` directory
-2. Copy all files from `libs/kinara-working/` to `libs/menorah-working/`
+1. Create `libs/chanukah-menorah-lantern/` directory
+2. Copy all files from `libs/kwanzaa-kinara-lantern/` to `libs/chanukah-menorah-lantern/`
 3. Make systematic changes as outlined above
 4. Create/obtain menorah SVG artwork
 5. Position 27 LEDs in board.svg to match menorah design

@@ -137,7 +137,7 @@ The simulator will light up the corresponding `NEOPIXEL_X` coordinates defined i
 
 ### Reference Example
 
-See `libs/kinara-working/` for a complete working example of a board with 25 onboard NeoPixels across two physical strips.
+See `libs/kwanzaa-kinara-lantern/` for a complete working example of a board with 25 onboard NeoPixels across two physical strips.
 
 ### Step 3.6: Multiple NeoPixel Pins (Advanced - Optional)
 
@@ -145,7 +145,7 @@ If your board has NeoPixels on **multiple physical data pins**, you need special
 
 **Example:** Kinara has 14 LEDs on D9 and 11 LEDs on D7 (separate pins).
 
-**Solution:** Use runtime detection in `libs/YOUR_BOARD/kinara.ts` to provide different behavior for simulator vs hardware. See `libs/kinara-working/kinara.ts` for complete implementation.
+**Solution:** Use runtime detection in `libs/YOUR_BOARD/kinara.ts` to provide different behavior for simulator vs hardware. See `libs/kwanzaa-kinara-lantern/kinara.ts` for complete implementation.
 
 **Key points:**
 - Use lazy initialization (functions, not constants) to avoid parts system analysis at module load

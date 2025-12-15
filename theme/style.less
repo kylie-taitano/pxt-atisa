@@ -112,3 +112,20 @@
     max-width: 100% !important;
     box-sizing: border-box !important;
 }
+
+/* Board chooser card images - show full image without cropping (only for lantern board images) */
+.ui.cardimage[data-src*="/pxt-atisa/static/libs/kwanzaa-kinara-lantern"],
+.ui.cardimage[data-src*="/pxt-atisa/static/libs/chanukah-menorah-lantern"] {
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.ui.card:has(.ui.cardimage[data-src*="/pxt-atisa/static/libs/kwanzaa-kinara-lantern"]) .image,
+.ui.card:has(.ui.cardimage[data-src*="/pxt-atisa/static/libs/kwanzaa-kinara-lantern"]) .imagewrapper,
+.ui.card:has(.ui.cardimage[data-src*="/pxt-atisa/static/libs/chanukah-menorah-lantern"]) .image,
+.ui.card:has(.ui.cardimage[data-src*="/pxt-atisa/static/libs/chanukah-menorah-lantern"]) .imagewrapper {
+    height: auto !important;
+    min-height: 200px !important;
+    overflow: visible !important;
+}

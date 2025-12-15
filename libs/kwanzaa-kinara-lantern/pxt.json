@@ -1,11 +1,11 @@
 {
-    "name": "menorah-working",
-    "description": "Menorah Holiday Lantern - Working board combining simulator and hardware support",
+    "name": "kwanzaa-kinara-lantern",
+    "description": "Start coding your Kwanzaa Kinara lantern!",
     "files": [
         "README.md",
         "config.ts",
         "device.d.ts",
-        "menorah.ts",
+        "kinara.ts",
         "board.json",
         "board.svg"
     ],
