@@ -92,12 +92,23 @@
     }
 }
 
-/* Hero image scaling */
-.homeScreenHero img,
-[class*="hero"] img,
-.ui.card.hero img {
+/* Hero image scaling - target getting-started-segment.hero with background image */
+.ui.segment.getting-started-segment.hero {
     width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    object-position: center !important;
+    max-width: 100vw !important;
+    height: 300px !important;
+    overflow: hidden !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Also target parent containers to prevent overflow */
+.ui.segment.getting-started-segment.hero,
+.ui.segment.getting-started-segment.hero * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }

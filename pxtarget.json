@@ -409,7 +409,7 @@
         "feedbackUrl": "https://forum.makecode.com/",
         "betaUrl": "https://github.com/microsoft/pxt-maker",
         "boardName": "board",
-        "homeScreenHero": "/static/herogallery/hero-image.jpg",
+        "homeScreenHero": "/pxt-atisa/docs/static/herogallery/hero-image.jpg",
         "debugger": true,
         "print": true,
         "chooseBoardOnNewProject": true,
