@@ -36,3 +36,4 @@ lib/
 _locales
 
 **/*.DS_Store
+PR_DESCRIPTION.md

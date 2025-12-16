@@ -371,9 +371,9 @@ All boards report as "ItsyBitsy M0 Express" over USB because they use the same p
 
 Each holiday board has dedicated project tutorials:
 - **Kwanzaa Projects:** `/docs/projects/kwanzaa/`
-- **Hanukkah Projects:** `/docs/projects/hanukkah/`
+- **Chanukah Projects:** `/docs/projects/chanukah/`
 - **Christmas Projects:** `/docs/projects/christmas/`
-- **Parol Projects:** `/docs/projects/parole/`
+- **Parol Projects:** `/docs/projects/parol/`
 
 ### Learning Outcomes
 
