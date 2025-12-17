@@ -101,42 +101,52 @@ jobs:
           git checkout --orphan gh-pages || git checkout gh-pages
           git reset --hard
           
-          # Copy built files
+          # Copy built files (if build succeeded)
           if [ -d "built/packaged/pxt-atisa" ]; then
+            echo "✅ Build succeeded - copying built files"
             cp -r built/packaged/pxt-atisa/* .
-            
-            # Copy source static files (pxt staticpkg doesn't include them)
-            if [ -d "/tmp/source-static" ]; then
-              mkdir -p docs/static
-              cp -r /tmp/source-static/* docs/static/ 2>/dev/null || true
-              # Also copy to /static/ for markdown references that use /static/ paths
-              mkdir -p static
-              cp -r /tmp/source-static/* static/ 2>/dev/null || true
-            fi
-            # Restore source docs (markdown, etc.) so docs/*.md are available on gh-pages
-            echo "=== DEBUG: Restoring docs to gh-pages ==="
-            if [ -d "/tmp/source-docs" ]; then
-              echo "✅ /tmp/source-docs exists"
-              echo "=== DEBUG: Contents of /tmp/source-docs ==="
-              ls -la /tmp/source-docs/ | head -20
-              mkdir -p docs
-              echo "=== DEBUG: Running rsync to restore docs ==="
-              rsync -av /tmp/source-docs/ docs/ 2>&1 | head -20 || echo "⚠️ rsync restore failed"
-              echo "=== DEBUG: Verifying restored docs ==="
-              ls -la docs/projects/chanukah/light-up-your-menorah.md 2>&1 && echo "✅ Tutorial file restored!" || echo "❌ Tutorial file NOT restored!"
-            else
-              echo "❌ /tmp/source-docs does NOT exist - docs were not saved!"
-            fi
-            
-            rm -rf built node_modules pxt_modules libs .github .vscode .pxt
-            rm -f .gitignore .cursorrules LICENSE README.md SECURITY.md .travis.yml .clang-format .gitattributes
-            find . -name "*.md" -not -path "./docs/*" -delete || true
-            
-            echo "=== DEBUG: Final check - docs directory contents ==="
-            ls -la docs/ 2>&1 | head -20 || echo "⚠️ docs/ directory is empty or missing"
-            echo "=== DEBUG: Final check - tutorial file ==="
-            find . -name "light-up-your-menorah.md" 2>&1 && echo "✅ Tutorial file found somewhere!" || echo "❌ Tutorial file NOT FOUND anywhere!"
+          else
+            echo "⚠️ Build failed or incomplete - built/packaged/pxt-atisa not found"
+            echo "=== DEBUG: Checking if built directory exists ==="
+            ls -la built/ 2>&1 | head -10 || echo "⚠️ built/ directory does not exist"
           fi
+          
+          # Copy source static files (pxt staticpkg doesn't include them)
+          # Always restore these regardless of build status
+          if [ -d "/tmp/source-static" ]; then
+            mkdir -p docs/static
+            cp -r /tmp/source-static/* docs/static/ 2>/dev/null || true
+            # Also copy to /static/ for markdown references that use /static/ paths
+            mkdir -p static
+            cp -r /tmp/source-static/* static/ 2>/dev/null || true
+          fi
+          
+          # Restore source docs (markdown, etc.) so docs/*.md are available on gh-pages
+          # Always restore these regardless of build status
+          echo "=== DEBUG: Restoring docs to gh-pages ==="
+          if [ -d "/tmp/source-docs" ]; then
+            echo "✅ /tmp/source-docs exists"
+            echo "=== DEBUG: Contents of /tmp/source-docs ==="
+            ls -la /tmp/source-docs/ | head -20
+            mkdir -p docs
+            echo "=== DEBUG: Running rsync to restore docs ==="
+            rsync -av /tmp/source-docs/ docs/ 2>&1 | head -20 || echo "⚠️ rsync restore failed"
+            echo "=== DEBUG: Verifying restored docs ==="
+            ls -la docs/projects/chanukah/light-up-your-menorah.md 2>&1 && echo "✅ Tutorial file restored!" || echo "❌ Tutorial file NOT restored!"
+          else
+            echo "❌ /tmp/source-docs does NOT exist - docs were not saved!"
+          fi
+          
+          # Cleanup (always run regardless of build status)
+          rm -rf built node_modules pxt_modules libs .github .vscode .pxt
+          rm -f .gitignore .cursorrules LICENSE README.md SECURITY.md .travis.yml .clang-format .gitattributes
+          find . -name "*.md" -not -path "./docs/*" -delete || true
+          
+          # Final verification
+          echo "=== DEBUG: Final check - docs directory contents ==="
+          ls -la docs/ 2>&1 | head -20 || echo "⚠️ docs/ directory is empty or missing"
+          echo "=== DEBUG: Final check - tutorial file ==="
+          find . -name "light-up-your-menorah.md" 2>&1 && echo "✅ Tutorial file found somewhere!" || echo "❌ Tutorial file NOT FOUND anywhere!"
           
           # Ensure .nojekyll exists to bypass Jekyll processing for static assets
           touch .nojekyll

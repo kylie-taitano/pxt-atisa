@@ -1,8 +1,6 @@
 {
     "name": "{0}",
-    "dependencies": {
-        "adafruit-trinket-m0": "*"
-    },
+    "dependencies": {},
     "description": "",
     "files": [
         "main.blocks",
