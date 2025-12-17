@@ -1,40 +1,5 @@
-// Detect which context we're loading in (using any to avoid TypeScript errors)
-let contextInfo = "UNKNOWN";
-try {
-    let win: any = (function() { try { return window; } catch(e) { return undefined; } })();
-    if (win && win.location && win.location.href) {
-        if (win.location.href.indexOf('sim-frame') >= 0) {
-            contextInfo = "SIMULATOR";
-        } else {
-            contextInfo = "EDITOR";
-        }
-    }
-} catch (e) {
-    contextInfo = "ERROR: " + e;
-}
-
-console.log("[MENORAH DEBUG] menorah.ts file is being loaded/parsed");
-console.log("[MENORAH DEBUG] Context: " + contextInfo);
-try {
-    let win: any = (function() { try { return window; } catch(e) { return undefined; } })();
-    let windowLoc = win && win.location ? win.location.href : 'N/A';
-    console.log("[MENORAH DEBUG] window.location: " + windowLoc);
-} catch (e) {
-    console.log("[MENORAH DEBUG] window.location: ERROR - " + e);
-}
-console.log("[MENORAH DEBUG] typeof control: " + (typeof control));
-try {
-    let bl: any = (function() { try { return (window as any).Blockly; } catch(e) { return undefined; } })();
-    console.log("[MENORAH DEBUG] typeof Blockly: " + (bl ? "object" : "undefined"));
-} catch (e) {
-    console.log("[MENORAH DEBUG] typeof Blockly: ERROR - " + e);
-}
-
 //% color="#FFD700" weight=100 icon="\uf1ad"
 namespace menorah {
-    console.log("[MENORAH DEBUG] Namespace menorah declared in " + contextInfo + " context");
-    console.log("[MENORAH DEBUG] Block definitions should be processed now in " + contextInfo);
-    console.log("[MENORAH DEBUG] Namespace menorah is being loaded/compiled in " + contextInfo);
     let _strip: MenorahVirtualStrip = null;
     
     // Motion sensor state
@@ -52,10 +17,7 @@ namespace menorah {
     //% blockId=menorah_strip block="menorah strip"
     //% weight=100
     export function strip(): MenorahVirtualStrip {
-        console.log("[MENORAH DEBUG] Block definition processed: menorah_strip");
-        console.log("[MENORAH DEBUG] menorah.strip() called");
         if (!_strip) {
-            console.log("[MENORAH DEBUG] Creating new MenorahVirtualStrip");
             _strip = new MenorahVirtualStrip();
         }
         return _strip;
