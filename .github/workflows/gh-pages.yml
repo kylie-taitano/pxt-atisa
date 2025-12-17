@@ -39,7 +39,8 @@ jobs:
       - name: Clone pxt-core
         run: |
           if [ ! -d ../pxt ]; then
-            git clone --depth=1 https://github.com/microsoft/pxt.git ../pxt
+            # Using atisatech fork with tutorial fix branch
+            git clone --depth=1 -b atisa-tutorial-fix https://github.com/atisatech/pxt.git ../pxt
             cd ../pxt
             npm install
             npm run build
