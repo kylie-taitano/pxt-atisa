@@ -79,9 +79,22 @@ jobs:
             cp -r docs/static/* /tmp/source-static/ 2>/dev/null || true
           fi
           # Save source docs (markdown, etc.) excluding docs/static
+          echo "=== DEBUG: Checking for docs directory ==="
+          pwd
+          ls -la | grep docs || echo "docs not in current directory"
           if [ -d "docs" ]; then
+            echo "✅ docs/ directory found"
+            echo "=== DEBUG: Listing docs contents ==="
+            ls -la docs/ | head -20
+            echo "=== DEBUG: Checking for tutorial file ==="
+            ls -la docs/projects/chanukah/light-up-your-menorah.md 2>&1 && echo "✅ Tutorial file found in source!" || echo "❌ Tutorial file NOT in source!"
             mkdir -p /tmp/source-docs
-            rsync -a --exclude "static" docs/ /tmp/source-docs/ 2>/dev/null || true
+            echo "=== DEBUG: Running rsync to save docs ==="
+            rsync -av --exclude "static" docs/ /tmp/source-docs/ 2>&1 | head -20 || echo "⚠️ rsync failed"
+            echo "=== DEBUG: Verifying saved docs ==="
+            ls -la /tmp/source-docs/projects/chanukah/ 2>&1 | head -10 || echo "⚠️ chanukah folder not in saved docs"
+          else
+            echo "❌ docs/ directory NOT FOUND in source!"
           fi
           
           # Create or checkout gh-pages branch
@@ -101,14 +114,28 @@ jobs:
               cp -r /tmp/source-static/* static/ 2>/dev/null || true
             fi
             # Restore source docs (markdown, etc.) so docs/*.md are available on gh-pages
+            echo "=== DEBUG: Restoring docs to gh-pages ==="
             if [ -d "/tmp/source-docs" ]; then
+              echo "✅ /tmp/source-docs exists"
+              echo "=== DEBUG: Contents of /tmp/source-docs ==="
+              ls -la /tmp/source-docs/ | head -20
               mkdir -p docs
-              rsync -a /tmp/source-docs/ docs/ 2>/dev/null || true
+              echo "=== DEBUG: Running rsync to restore docs ==="
+              rsync -av /tmp/source-docs/ docs/ 2>&1 | head -20 || echo "⚠️ rsync restore failed"
+              echo "=== DEBUG: Verifying restored docs ==="
+              ls -la docs/projects/chanukah/light-up-your-menorah.md 2>&1 && echo "✅ Tutorial file restored!" || echo "❌ Tutorial file NOT restored!"
+            else
+              echo "❌ /tmp/source-docs does NOT exist - docs were not saved!"
             fi
             
             rm -rf built node_modules pxt_modules libs .github .vscode .pxt
             rm -f .gitignore .cursorrules LICENSE README.md SECURITY.md .travis.yml .clang-format .gitattributes
             find . -name "*.md" -not -path "./docs/*" -delete || true
+            
+            echo "=== DEBUG: Final check - docs directory contents ==="
+            ls -la docs/ 2>&1 | head -20 || echo "⚠️ docs/ directory is empty or missing"
+            echo "=== DEBUG: Final check - tutorial file ==="
+            find . -name "light-up-your-menorah.md" 2>&1 && echo "✅ Tutorial file found somewhere!" || echo "❌ Tutorial file NOT FOUND anywhere!"
           fi
           
           # Ensure .nojekyll exists to bypass Jekyll processing for static assets
