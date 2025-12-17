@@ -1,10 +1,14 @@
 {
     "name": "{0}",
-    "dependencies": {},
+    "dependencies": {
+        "core---samd": "file:../core---samd"
+    },
     "description": "",
     "files": [
         "main.blocks",
         "main.ts",
         "README.md"
-    ]
+    ],
+    "compileServiceVariant": "samd21",
+    "core": true
 }
