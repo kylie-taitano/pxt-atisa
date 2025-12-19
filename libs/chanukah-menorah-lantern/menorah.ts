@@ -330,12 +330,23 @@ class MenorahBoard {
      */
     setMenorahBaseLight(baseNumber: number, color: number) {
         // Logical mapping to physical indices 18-26
-        // Lookup array: [18, 19, 20, 21, 22, 23, 24, 25, 26]
-        // Row 1 (top): 1-3 → indices 18-20
+        // Row 1 (top): 1-3 → indices 18-20 (simulator) or 20, 19, 18 (hardware)
         // Row 2 (middle): 4-8 → indices 21-25
         // Row 3 (bottom): 9 → index 26
+        // Hardware note: First 3 LEDs on D7 are wired in reverse order
+        // Simulator: direct mapping (base light 1 → index 18)
+        // Hardware: reversed for D7 wiring (base light 1 → physical 20 → D7 index 2)
         if (baseNumber < 1 || baseNumber > 9) return; // Validate input
-        const basePhysicalIndices = [18, 19, 20, 21, 22, 23, 24, 25, 26];
+        
+        let basePhysicalIndices: number[];
+        if (this.useVirtualStrip) {
+            // Simulator: direct mapping (no reversal needed)
+            basePhysicalIndices = [18, 19, 20, 21, 22, 23, 24, 25, 26];
+        } else {
+            // Hardware: first 3 reversed for D7 wiring
+            basePhysicalIndices = [20, 19, 18, 21, 22, 23, 24, 25, 26];
+        }
+        
         const physicalIndex = basePhysicalIndices[baseNumber - 1];
         this.setPixelColor(physicalIndex, color);
     }
