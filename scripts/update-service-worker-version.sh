@@ -110,9 +110,4 @@ fi
 echo ""
 echo "✓ Phase 1 completed successfully"
 echo "Version set to: $NEW_VERSION"
-echo ""
-echo "Next steps:"
-echo "1. Test the updated build locally"
-echo "2. Check browser DevTools → Application → Service Workers"
-echo "3. Verify cache names include the new version"
 
