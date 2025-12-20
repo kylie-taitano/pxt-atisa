@@ -63,9 +63,21 @@ jobs:
           pxt link ../pxt
           pxt link ../pxt-common-packages
       
+      - name: Bump version for cache-busting
+        run: |
+          chmod +x scripts/bump-version.sh
+          ./scripts/bump-version.sh
+          echo "Version bumped to $(node -p "require('./package.json').version")"
+      
       - name: Build static package
         run: |
           pxt staticpkg --route pxt-atisa || true
+      
+      - name: Update service worker version
+        run: |
+          chmod +x scripts/update-service-worker-version.sh
+          ./scripts/update-service-worker-version.sh
+          echo "Service worker version updated"
       
       - name: Deploy to gh-pages
         if: success()
