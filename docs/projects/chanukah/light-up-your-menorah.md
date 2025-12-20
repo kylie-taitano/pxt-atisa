@@ -252,10 +252,6 @@ Look at the simulator! Can you see the menorah lighting up? All 9 flames should 
 
 ## Step 12 @fullscreen
 
-If you have a menorah board, click the **Download** button to put your code on the board and see the real lights!
+![Connecting your menorah board](/pxt-atisa/static/projects/chanukah/connect-device.gif)
 
-![Download button with USB icon](/pxt-atisa/static/projects/chanukah/download-button.png)
-
-Look for the download button at the bottom of the screen (see the image above). When your board is connected, you'll see a small USB icon appear on the download button - that's how you know it's ready!
-
-**Important:** When you connect your board, you might need to reset it. Look for the reset button on your board and press it. You'll know the board is ready when the indicator light on the board turns green. Then try downloading your code again!
+Plug in your board, click the three dots (⋯) next to Download, then "Connect Device". Select "ItsyBitsy M0 Express" and click Connect. When you see the USB icon, click Download!
