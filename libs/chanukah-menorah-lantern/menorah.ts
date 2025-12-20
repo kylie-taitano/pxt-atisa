@@ -16,19 +16,150 @@ namespace menorah {
     const DEBOUNCE_STEPS = 10;  // 500ms (10 × 50ms) - matches other ornament code for quick toggle behavior
     
     /**
-     * Get the Menorah board
+     * Set brightness for all LEDs (0-255)
      */
-    //% blockId=menorah_strip block="menorah board"
+    //% blockId=menorah_setBrightness block="set brightness %brightness"
+    //% brightness.min=0 brightness.max=255
     //% weight=100
-    export function strip(): MenorahBoard {
-        return getBoard();
+    export function setBrightness(brightness: number) {
+        getBoard().setBrightness(brightness);
+    }
+    
+    /**
+     * Update the LEDs
+     */
+    //% blockId=menorah_show block="show lights"
+    //% weight=95
+    export function show() {
+        getBoard().show();
+    }
+    
+    /**
+     * Set color of a Menorah flame (1-9, left to right)
+     * Flame 1 = leftmost, Flame 9 = rightmost
+     */
+    //% blockId=menorah_setFlame block="set Menorah flame %flameNumber to %color"
+    //% flameNumber.min=1 flameNumber.max=9
+    //% color.shadow="colorNumberPicker"
+    //% weight=90
+    export function setFlame(flameNumber: number, color: number) {
+        getBoard().setFlame(flameNumber, color);
+    }
+    
+    /**
+     * Set color of a Menorah candle (1-9, left to right)
+     * Candle 1 = leftmost, Candle 5 = shammash (middle), Candle 9 = rightmost
+     */
+    //% blockId=menorah_setCandle block="set Menorah candle %candleNumber to %color"
+    //% candleNumber.min=1 candleNumber.max=9
+    //% color.shadow="colorNumberPicker"
+    //% weight=89
+    export function setCandle(candleNumber: number, color: number) {
+        getBoard().setCandle(candleNumber, color);
+    }
+    
+    /**
+     * Set color of a menorah base light (1-9, row by row, left to right)
+     * Base Light 1 = top left, Base Light 9 = bottom center
+     */
+    //% blockId=menorah_setBaseLight block="set base light %baseNumber to %color"
+    //% baseNumber.min=1 baseNumber.max=9
+    //% color.shadow="colorNumberPicker"
+    //% weight=88
+    export function setMenorahBaseLight(baseNumber: number, color: number) {
+        getBoard().setMenorahBaseLight(baseNumber, color);
+    }
+    
+    /**
+     * Get list of all flame numbers (1-9)
+     */
+    //% blockId=menorah_allFlameNumbers block="all flame numbers"
+    //% weight=80
+    export function allFlameNumbers(): number[] {
+        return [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
+    
+    /**
+     * Get list of flame numbers except shammash (1-4, 6-9)
+     */
+    //% blockId=menorah_flameNumbersExceptShammash block="flame numbers except shammash"
+    //% weight=79
+    export function flameNumbersExceptShammash(): number[] {
+        return [1, 2, 3, 4, 6, 7, 8, 9];
+    }
+    
+    /**
+     * Get list of all candle numbers (1-9)
+     */
+    //% blockId=menorah_allCandleNumbers block="all candle numbers"
+    //% weight=78
+    export function allCandleNumbers(): number[] {
+        return [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
+    
+    /**
+     * Get list of candle numbers except shammash (1-4, 6-9)
+     */
+    //% blockId=menorah_candleNumbersExceptShammash block="candle numbers except shammash"
+    //% weight=77
+    export function candleNumbersExceptShammash(): number[] {
+        return [1, 2, 3, 4, 6, 7, 8, 9];
+    }
+    
+    /**
+     * Get list of all base light numbers (1-9)
+     */
+    //% blockId=menorah_allBaseLightNumbers block="all base light numbers"
+    //% weight=76
+    export function allBaseLightNumbers(): number[] {
+        return [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
+    
+    /**
+     * Set all Menorah flames to the same color
+     */
+    //% blockId=menorah_setAllFlames block="set all Menorah flames to %color"
+    //% color.shadow="colorNumberPicker"
+    //% weight=70
+    export function setAllFlames(color: number) {
+        getBoard().setAllFlames(color);
+    }
+    
+    /**
+     * Set all Menorah candles to the same color
+     */
+    //% blockId=menorah_setAllCandles block="set all Menorah candles to %color"
+    //% color.shadow="colorNumberPicker"
+    //% weight=69
+    export function setAllCandles(color: number) {
+        getBoard().setAllCandles(color);
+    }
+    
+    /**
+     * Set all menorah base lights to the same color
+     */
+    //% blockId=menorah_setAllMenorahBaseLights block="set all Menorah base lights to %color"
+    //% color.shadow="colorNumberPicker"
+    //% weight=68
+    export function setAllMenorahBaseLights(color: number) {
+        getBoard().setAllMenorahBaseLights(color);
+    }
+    
+    /**
+     * Set all pixels to same color
+     */
+    //% blockId=menorah_setAll block="set all %color"
+    //% color.shadow="colorNumberPicker"
+    //% weight=67
+    export function setAll(color: number) {
+        getBoard().setAll(color);
     }
     
     /**
      * Initialize the motion sensor - call this once at the start
      */
     //% blockId=menorah_initMotionSensor block="initialize motion sensor"
-    //% weight=90
+    //% weight=60
     export function initMotionSensor() {
         // Write to sensor configuration register to enable proximity
         const message = pins.createBuffer(3);
@@ -52,7 +183,7 @@ namespace menorah {
      * Check if motion is detected - returns true if someone moved nearby
      */
     //% blockId=menorah_isMotionDetected block="motion detected"
-    //% weight=85
+    //% weight=59
     export function isMotionDetected(): boolean {
         // Check if we're in simulator mode
         if (control.deviceDalVersion() === "sim") {
@@ -114,140 +245,18 @@ namespace menorah {
     //% blockId=menorah_setPixelColor block="set pixel color at %index to %color"
     //% index.min=0 index.max=26
     //% color.shadow="colorNumberPicker"
+    //% weight=58
     export function setPixelColor(index: number, color: number) {
         getBoard().setPixelColor(index, color);
     }
     
     /**
-     * Set color of a Menorah flame (1-9, left to right)
-     * Flame 1 = leftmost, Flame 9 = rightmost
+     * Get the Menorah board
      */
-    //% blockId=menorah_setFlame block="set Menorah flame %flameNumber to %color"
-    //% flameNumber.min=1 flameNumber.max=9
-    //% color.shadow="colorNumberPicker"
-    export function setFlame(flameNumber: number, color: number) {
-        getBoard().setFlame(flameNumber, color);
-    }
-    
-    /**
-     * Set color of a Menorah candle (1-9, left to right)
-     * Candle 1 = leftmost, Candle 5 = shammash (middle), Candle 9 = rightmost
-     */
-    //% blockId=menorah_setCandle block="set Menorah candle %candleNumber to %color"
-    //% candleNumber.min=1 candleNumber.max=9
-    //% color.shadow="colorNumberPicker"
-    export function setCandle(candleNumber: number, color: number) {
-        getBoard().setCandle(candleNumber, color);
-    }
-    
-    /**
-     * Set color of a menorah base light (1-9, row by row, left to right)
-     * Base Light 1 = top left, Base Light 9 = bottom center
-     */
-    //% blockId=menorah_setBaseLight block="set Menorah base light %baseNumber to %color"
-    //% weight=80
-    //% baseNumber.min=1 baseNumber.max=9
-    //% color.shadow="colorNumberPicker"
-    export function setMenorahBaseLight(baseNumber: number, color: number) {
-        getBoard().setMenorahBaseLight(baseNumber, color);
-    }
-    
-    /**
-     * Set all Menorah flames to the same color
-     */
-    //% blockId=menorah_setAllFlames block="set all Menorah flames to %color"
-    //% color.shadow="colorNumberPicker"
-    export function setAllFlames(color: number) {
-        getBoard().setAllFlames(color);
-    }
-    
-    /**
-     * Set all Menorah candles to the same color
-     */
-    //% blockId=menorah_setAllCandles block="set all Menorah candles to %color"
-    //% color.shadow="colorNumberPicker"
-    export function setAllCandles(color: number) {
-        getBoard().setAllCandles(color);
-    }
-    
-    /**
-     * Set all menorah base lights to the same color
-     */
-    //% blockId=menorah_setAllMenorahBaseLights block="set all Menorah base lights to %color"
-    //% color.shadow="colorNumberPicker"
-    export function setAllMenorahBaseLights(color: number) {
-        getBoard().setAllMenorahBaseLights(color);
-    }
-    
-    /**
-     * Set all pixels to same color
-     */
-    //% blockId=menorah_setAll block="set all %color"
-    //% color.shadow="colorNumberPicker"
-    export function setAll(color: number) {
-        getBoard().setAll(color);
-    }
-    
-    /**
-     * Set brightness for all LEDs (0-255)
-     */
-    //% blockId=menorah_setBrightness block="set brightness %brightness"
-    //% brightness.min=0 brightness.max=255
-    export function setBrightness(brightness: number) {
-        getBoard().setBrightness(brightness);
-    }
-    
-    /**
-     * Get list of all flame numbers (1-9)
-     */
-    //% blockId=menorah_allFlameNumbers block="all flame numbers"
-    //% weight=70
-    export function allFlameNumbers(): number[] {
-        return [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    }
-    
-    /**
-     * Get list of flame numbers except shammash (1-4, 6-9)
-     */
-    //% blockId=menorah_flameNumbersExceptShammash block="flame numbers except shammash"
-    //% weight=69
-    export function flameNumbersExceptShammash(): number[] {
-        return [1, 2, 3, 4, 6, 7, 8, 9];
-    }
-    
-    /**
-     * Get list of all candle numbers (1-9)
-     */
-    //% blockId=menorah_allCandleNumbers block="all candle numbers"
-    //% weight=68
-    export function allCandleNumbers(): number[] {
-        return [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    }
-    
-    /**
-     * Get list of candle numbers except shammash (1-4, 6-9)
-     */
-    //% blockId=menorah_candleNumbersExceptShammash block="candle numbers except shammash"
-    //% weight=67
-    export function candleNumbersExceptShammash(): number[] {
-        return [1, 2, 3, 4, 6, 7, 8, 9];
-    }
-    
-    /**
-     * Get list of all base light numbers (1-9)
-     */
-    //% blockId=menorah_allBaseLightNumbers block="all base light numbers"
-    //% weight=66
-    export function allBaseLightNumbers(): number[] {
-        return [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    }
-    
-    /**
-     * Update the LEDs
-     */
-    //% blockId=menorah_show block="show lights"
-    export function show() {
-        getBoard().show();
+    //% blockId=menorah_strip block="menorah board"
+    //% weight=57
+    export function strip(): MenorahBoard {
+        return getBoard();
     }
 }
 

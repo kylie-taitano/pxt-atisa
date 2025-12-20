@@ -3,7 +3,7 @@
 ```codecard
 [
     {
-        "name": "Chanukah",
+        "name": "Chanukah Tutorials",
         "url": "/projects/chanukah",
         "imageUrl": "/pxt-atisa/static/projects/digital-io/blinky/gallery.png"
     }
@@ -12,5 +12,5 @@
 
 ## See Also
 
-[Chanukah](/projects/chanukah)
+[Chanukah Tutorials](/projects/chanukah)
 
