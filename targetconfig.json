@@ -45,6 +45,7 @@
     }
   },
   "galleries": {
-    "Chanukah Tutorials": "/projects/chanukah"
+    "Chanukah Menorah Tutorials": "/projects/chanukah",
+    "Philippine Parol Tutorials": "/projects/parol"
   }
 }
