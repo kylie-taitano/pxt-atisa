@@ -11,23 +11,39 @@
 
 ---
 
-* name: MakeCode Walkthrough
+* name: åtisa Editor Main Page Walkthrough
 * cardType: yt
-* youTubeId: PLACEHOLDER_VIDEO_ID
-* description: A tour of the MakeCode editor
+* youTubeId: ATZvEdHAjlo
+* description: A tour of the ATISA editor main page
 
 ---
 
-* name: Tutorial Overview
+* name: Tutorial Workflow Walkthrough
 * cardType: yt
-* youTubeId: PLACEHOLDER_VIDEO_ID
-* description: Overview of available tutorials
+* youTubeId: ceakIN0EH5A
+* description: Learn about the tutorial window and workflow elements
+
+---
+
+* name: New Project Workflow Walkthrough
+* cardType: yt
+* youTubeId: z3nDWNSF1y4
+* description: Learn how to create and start a new project
+
+---
+
+* name: Reset and Troubleshoot Your Lantern
+* cardType: yt
+* youTubeId: UBtG5nPNa_k
+* description: Learn how to reset and troubleshoot your lantern board
 
 ### ~
 
 ## See Also
 
 [Getting Started with the Engineering Kit](#),
-[MakeCode Walkthrough](#),
-[Tutorial Overview](#)
+[åtisa Editor Main Page Walkthrough](#),
+[Tutorial Workflow Walkthrough](#),
+[New Project Workflow Walkthrough](#),
+[Reset and Troubleshoot Your Lantern](#)
 
