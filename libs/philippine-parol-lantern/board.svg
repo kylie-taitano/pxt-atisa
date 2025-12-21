@@ -4170,6 +4170,6 @@
   <circle cx="228.5" cy="114.2" r="6" fill="#333" stroke="#000" stroke-width="2.4" id="NEOPIXEL_D7_9"/>
   
   <!-- Motion sensor button -->
-  <rect x="187.5" y="200.0" width="25" height="25" fill="#ccc" stroke="#000" stroke-width="1" rx="2"/>
+  <rect x="187.5" y="200.0" width="25" height="25" fill="#FF6B35" stroke="#000" stroke-width="1" rx="2"/>
   <text x="200" y="277" text-anchor="middle" font-family="Arial" font-size="10" fill="#000">D2</text>
 </svg>
