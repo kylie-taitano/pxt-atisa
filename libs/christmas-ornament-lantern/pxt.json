@@ -1,5 +1,5 @@
 {
-    "name": "holiday-ornament-lantern",
+    "name": "christmas-ornament-lantern",
     "description": "Start coding your Holiday Ornament lantern!",
     "files": [
         "README.md",
@@ -43,4 +43,5 @@
         "accelerometer"
     ]
 }
+
 

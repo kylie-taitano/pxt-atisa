@@ -33,7 +33,8 @@
         "libs/proximity",
         "libs/kwanzaa-kinara-lantern",
         "libs/chanukah-menorah-lantern",
-        "libs/philippine-parol-lantern"
+        "libs/philippine-parol-lantern",
+        "libs/christmas-ornament-lantern"
     ],
     "serial": {
         "useHF2": true,
@@ -84,9 +85,9 @@
             },
             {
                 "name": "Holiday Ornament PCB v1",
-                "url": "libs/holiday-ornament-lantern",
+                "url": "libs/christmas-ornament-lantern",
                 "variant": "samd21",
-                "cardImage": "/pxt-atisa/docs/static/libs/holiday-ornament-lantern.jpg"
+                "cardImage": "/pxt-atisa/docs/static/libs/christmas-ornament-lantern.jpg"
             }
         ],
         "messageSimulators": {

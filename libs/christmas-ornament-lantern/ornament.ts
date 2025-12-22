@@ -331,16 +331,27 @@ class OrnamentBoard {
     
     /**
      * Set color of a Top Row light (1-5) - INTERNAL USE ONLY
-     * Top Row mapping: D7 indices [4,3,2,1,0] → virtual indices [16,15,14,13,12]
+     * Top Row 1 = leftmost, Top Row 5 = rightmost
+     * Simulator: D7 indices [0,1,2,3,4] → virtual indices [12,13,14,15,16]
+     * Hardware: D7 strip is physically wired in reverse, so use [4,3,2,1,0] to get left-to-right
      */
     setTopRow(rowNumber: number, color: number) {
         if (rowNumber < 1 || rowNumber > 5) return; // Validate input
         
-        // Top Row physical indices on D7: [4,3,2,1,0] → virtual indices [16,15,14,13,12]
-        const topRowD7Indices = [4, 3, 2, 1, 0];
-        const d7Index = topRowD7Indices[rowNumber - 1];
-        const virtualIndex = 12 + d7Index; // D7 starts at virtual index 12
-        this.setPixelColor(virtualIndex, color);
+        if (this.useVirtualStrip) {
+            // Simulator: D7 indices [0,1,2,3,4] → virtual indices [12,13,14,15,16]
+            const topRowD7Indices = [0, 1, 2, 3, 4];
+            const d7Index = topRowD7Indices[rowNumber - 1];
+            const virtualIndex = 12 + d7Index;
+            this.setPixelColor(virtualIndex, color);
+        } else {
+            // Hardware: D7 strip is physically wired in reverse order
+            // To get left-to-right visual: Top Row 1 → D7 index 4, Top Row 5 → D7 index 0
+            const topRowD7Indices = [4, 3, 2, 1, 0];
+            const d7Index = topRowD7Indices[rowNumber - 1];
+            const virtualIndex = 12 + d7Index;
+            this.setPixelColor(virtualIndex, color);
+        }
     }
     
     /**

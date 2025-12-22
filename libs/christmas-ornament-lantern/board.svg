@@ -3,94 +3,97 @@
   <!-- White background rectangle -->
   <rect x="0" y="0" width="400" height="300" fill="white" stroke="none"/>
   
+  <!-- Forest green background rectangle behind ornament outline -->
+  <rect x="85" y="3" width="230" height="294" fill="#228B22" stroke="none"/>
+  
   <!-- Ornament diffuser design (scaled from 800x600 to 400x300) -->
   <g transform="scale(0.5)">
     <path d="M494.07 578.5L494.07 555.74Z"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M487.37 549.04L455.69 549.04"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M448.99 555.74L448.99 578.5Z"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M455.69 585.19L487.37 585.19"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M271.67 570.71L277.06 575.62"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M269.26 477.63L264.91 483.44"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M170.17 327.32L177.25 326.37"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M184.45 238.67L177.56 236.8"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M325.01 96.47L322.37 89.81"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M477.69 89.83L475.05 96.49"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M549.72 137.68L554.73 132.56"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M622.45 236.82L615.55 238.69"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M622.75 326.36L629.83 327.31"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M535.13 483.4L530.78 477.59"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M522.96 575.67L528.36 570.75"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M271.71 594.12L528.29 594.12"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M245.31 132.53L250.31 137.64"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 494.07 555.74 A 6.694 6.694 0 0 0 487.37 549.04"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 455.69 549.04 A 6.694 6.694 0 0 0 448.99 555.74"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 448.99 578.5 A 6.694 6.694 0 0 0 455.69 585.19"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 487.37 585.19 A 6.694 6.694 0 0 0 494.07 578.5"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 277.53 574.8 A 6.694 6.694 0 0 0 277.06 575.62"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 277.53 574.8 A 78.417 78.417 0 0 0 269.26 477.63"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 184.45 238.67 A 212.712 212.712 0 0 0 177.25 326.37"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 325.01 96.47 A 212.712 212.712 0 0 0 250.31 137.64"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 338.83 85.34 A 219.852 219.852 0 0 0 322.37 89.81"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 400 6.03 A 60.186 60.186 0 0 0 338.83 85.34"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 461.17 85.34 A 60.186 60.186 0 0 0 400 6.03"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 477.69 89.83 A 219.852 219.852 0 0 0 461.17 85.34"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 549.72 137.68 A 212.712 212.712 0 0 0 475.05 96.49"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 622.75 326.36 A 212.712 212.712 0 0 0 615.55 238.69"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 530.78 477.59 A 78.417 78.417 0 0 0 522.47 574.8"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 522.96 575.67 A 6.694 6.694 0 0 0 522.47 574.8"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 528.29 594.12 A 8.926 8.926 0 0 0 534.92 579.21"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 265.08 579.21 A 8.926 8.926 0 0 0 271.71 594.12"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 544.69 474.65 A 71.277 71.277 0 0 0 535.13 483.4"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 264.91 483.44 A 71.277 71.277 0 0 0 255.31 474.65"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 622.45 236.82 A 219.852 219.852 0 0 0 554.73 132.56"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 544.69 474.65 A 219.852 219.852 0 0 0 629.83 327.31"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 245.31 132.53 A 219.852 219.852 0 0 0 177.56 236.8"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 170.17 327.32 A 219.852 219.852 0 0 0 255.31 474.65"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 528.36 570.75 A 71.277 71.277 0 0 0 534.92 579.21"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
     <path d="M 265.08 579.21 A 71.277 71.277 0 0 0 271.67 570.71"
-    fill="none" stroke="black" stroke-width="1.0"/>
+    fill="none" stroke="black" stroke-width="2.0"/>
   </g>
   
   <!-- D9 NeoPixel Strip (12 LEDs) - Outer Ring -->
@@ -143,6 +146,6 @@
   <circle cx="250" cy="195" r="6" fill="#333" stroke="#000" stroke-width="2.4" id="NEOPIXEL_22"/>
   
   <!-- Motion sensor button at bottom of ornament -->
-  <rect x="222.5" y="272.5" width="25" height="25" fill="#FF6B35" stroke="#000" stroke-width="1" rx="2"/>
+  <rect x="222.5" y="272.5" width="25" height="25" fill="#ccc" stroke="#000" stroke-width="1" rx="2"/>
   <text x="235" y="289" text-anchor="middle" font-family="Arial" font-size="10" fill="#000">D2</text>
 </svg>
