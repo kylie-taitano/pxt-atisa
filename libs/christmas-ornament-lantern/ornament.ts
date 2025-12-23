@@ -1,4 +1,4 @@
-//% color="#FF6B6B" weight=100 icon="\uf06d"
+//% color="#FF6B6B" weight=100 icon="\uf7b8"
 namespace ornament {
     let _board: OrnamentBoard = null;
     function getBoard(): OrnamentBoard {

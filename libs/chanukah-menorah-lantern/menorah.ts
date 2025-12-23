@@ -1,4 +1,4 @@
-//% color="#FFBB00" weight=100 icon="\uf1ad"
+//% color="#FFBB00" weight=100 icon="\uf676"
 namespace menorah {
     let _board: MenorahBoard = null;
     function getBoard(): MenorahBoard {
