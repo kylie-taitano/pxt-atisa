@@ -12,3 +12,5 @@
   * [Light Up Your Parol](/projects/parol/light-up-your-parol)
   * [Play Music with Your Parol](/projects/parol/play-music-with-your-parol)
   * [Motion Sensor Music Parol](/projects/parol/motion-sensor-music-parol)
+* [Christmas Ornament Tutorials](/projects/ornament)
+  * [Light Up Your Ornament](/projects/ornament/light-up-your-ornament)
