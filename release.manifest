@@ -1,0 +1,70 @@
+CACHE MANIFEST
+
+CACHE:
+/pxt-atisa/semantic.js
+/pxt-atisa/main.js
+/pxt-atisa/pxtapp.js
+/pxt-atisa/typescript.js
+/pxt-atisa/marked/marked.min.js
+/pxt-atisa/highlight.js/highlight.pack.js
+/pxt-atisa/jquery.js
+/pxt-atisa/pxtlib.js
+/pxt-atisa/pxtcompiler.js
+/pxt-atisa/pxtpy.js
+/pxt-atisa/pxteditor.js
+/pxt-atisa/pxtsim.js
+/pxt-atisa/pxtembed.js
+/pxt-atisa/pxtworker.js
+/pxt-atisa/pxtweb.js
+/pxt-atisa/blockly.css
+/pxt-atisa/semantic.css
+/pxt-atisa/rtlsemantic.css
+
+
+
+
+
+# blockly
+/pxt-atisa/blockly/media/sprites.png
+/pxt-atisa/blockly/media/click.mp3
+/pxt-atisa/blockly/media/disconnect.wav
+/pxt-atisa/blockly/media/delete.mp3
+
+# monaco; keep in sync with webapp/public/index.html
+/pxt-atisa/vs/loader.js
+/pxt-atisa/vs/base/worker/workerMain.js
+/pxt-atisa/vs/basic-languages/bat/bat.js
+/pxt-atisa/vs/basic-languages/cpp/cpp.js
+/pxt-atisa/vs/basic-languages/python/python.js
+/pxt-atisa/vs/basic-languages/typescript/typescript.js
+/pxt-atisa/vs/basic-languages/markdown/markdown.js
+/pxt-atisa/vs/editor/editor.main.css
+/pxt-atisa/vs/editor/editor.main.js
+/pxt-atisa/vs/editor/editor.main.nls.js
+/pxt-atisa/vs/language/json/jsonMode.js
+/pxt-atisa/vs/language/json/jsonWorker.js
+/pxt-atisa/vs/language/typescript/tsMode.js
+/pxt-atisa/vs/language/typescript/tsWorker.js
+
+# charts
+/pxt-atisa/smoothie/smoothie_compressed.js
+/pxt-atisa/images/Bars_black.gif
+
+# gifjs
+/pxt-atisa/gifjs/gif.js
+
+# ai
+/pxt-atisa/ai.0.js
+
+/pxt-atisa/worker.js
+/pxt-atisa/monacoworker.js
+
+# ver Tue Dec 23 2025 18:31:52 GMT+0000 (Coordinated Universal Time)
+
+# target
+
+
+/pxt-atisa/target.js
+
+NETWORK:
+*
